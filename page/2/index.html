@@ -159,6 +159,374 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-python_str-4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/16/python_str-4/">Python——爬虫</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/16/python_str-4/" class="archive-article-date">
+  	<time datetime="2018-07-16T09:18:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>好好学习，天天向上！
+</code></pre><h2 id="四，字符串str"><a href="#四，字符串str" class="headerlink" title="四，字符串str()"></a>四，字符串str()</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">概念:字符串是字符的序列,C语言中用字符数组表示，如str[20] = “hello”。</span><br><span class="line">``` </span><br><span class="line"><span class="comment">### 1,其中有以下命名规则：</span></span><br><span class="line">``` bash</span><br><span class="line">1,名字必须以字母或者下划线开始，数字不能做为首字符，当名字包含多个单词时，可以使用下划线来链接.</span><br><span class="line">2,除了首字符，名称可以包含任何字母，数字，和下划线的组合，但是名字不能是关键字，不能出现分割符，标点或者运算符.</span><br><span class="line">3,名字长度不限，但是要注意名字区分大小写的.</span><br><span class="line">注意字符串的表示方式：单引号，双引号。<span class="string">'hello'</span>,<span class="string">"hello"</span></span><br><span class="line">``` </span><br><span class="line"><span class="comment">### 2,字符串比较运算符:</span></span><br><span class="line">``` bash</span><br><span class="line">== 等于</span><br><span class="line">&gt;  大于</span><br><span class="line">&lt;  小于</span><br><span class="line">&gt;=  大于等于</span><br><span class="line">&lt;=  小于等于</span><br><span class="line">!=  不等于</span><br><span class="line">字符串进行比较时，首先将两个字符串对应索引位的字符进行比较，如果相等，则进行下一个索引位的字符比较，如果不相等，则返回比较结果，结束本次比较。其次，如果两个字符串的内容都相等，但是第二个字符串的长度要大于第一个字符串，那么我们就认为第二个字符串大于第一个字符串，比如：<span class="string">'abc'</span>&lt;<span class="string">'abcd'</span>=》True。注意，字符串中的索引位是从0开始，其最后一个字符的索引位为字符串长度-1.</span><br><span class="line"></span><br><span class="line">另外是它们的返回值为布尔型，即True或False</span><br><span class="line">字符串进行比较时，采用对应位置的逐字母进行比较，首先将字母转成ASCII码，然后根据码值进行比较大小。如果一旦出现一方的字母码值大于另一方，就结束比较。</span><br><span class="line">提示：在键盘上，所有的字符的ASCII码值都小于a,b,c.....这些字母的码值</span><br><span class="line">只有这四个字符的ASCII码值大于字母z的码值：<span class="string">'&#123;'</span>、<span class="string">'|'</span>、<span class="string">'&#125;'</span>、<span class="string">'~'</span>，它们的码值从123-126</span><br></pre></td></tr></table></figure>
+<h3 id="3-字符串中的函数-find-index-upper-lower-title-split-strip-replace-input"><a href="#3-字符串中的函数-find-index-upper-lower-title-split-strip-replace-input" class="headerlink" title="3,字符串中的函数:find,index,upper,lower,title,split,strip,replace,input"></a>3,字符串中的函数:find,index,upper,lower,title,split,strip,replace,input</h3><pre><code class="bash">1),find()函数:用来查指定的字符或子字符串在原有字符串中的索引位。返回一个整型。
+<span class="comment">#举例</span>
+str1 = <span class="string">'hello'</span>
+str1.find(<span class="string">'ll'</span>) =&gt; 2
+str1.find(<span class="string">'l'</span>,1,4) 从下标1开始到4结束的范围内进行查找
+注意：如果查找的字符不在原字符串中，则返回-1.如果查找的字符为空字符，则返回0.
+index()函数：返回指定字符的索引位
+函数格式：index(子字符串[,开始索引位，结束索引位])
+返回值：如果找到指定的字符串，则返回其索引位；如果找不到就报错ValueError
+2)                 find()与index()函数的区别
+第一，两者在执行结果时类似的，如果找到指定的字符就会返回其索引位
+第二，find()如果找不到指定的字符时，返回-1；而index()找不到指定的字符，raise ValueError.
+第三，从效率上来讲，index的查询速度要优于find,因为在python中对于像字符串这样的有序数据类型，会产生一个索引对象来自动维护其序列，find()函数不管是否有这样的序列，都需要在字符串本身进行逐一查找，而index()会通过这个索引对象的映射方式，来快速找到对应的索引位。
+
+3),调用upper(),lower(),title(),函数来实现以下情况：
+<span class="comment">#举例：</span>
+mystring = <span class="string">"hello world"</span>
+n = mystring.upper() <span class="comment">#字符串全部转为大写</span>
+i = mystring.lower() <span class="comment">#字符串全部转为小写</span>
+x = mystring.title() <span class="comment">#字符串首字母大写</span>
+<span class="built_in">print</span>(x)
+
+4),split()：split(分割符))分割字符串函数，返回值为一个列表。其中，分隔符为字符串中原有的分割符。                 操作如下
+<span class="comment">#举例</span>
+string1 = <span class="string">'tv,pc,notebook,phone'</span>
+&gt;&gt;&gt; string1.split(<span class="string">','</span>)
+[<span class="string">'tv'</span>, <span class="string">'pc'</span>, <span class="string">'notebook'</span>, <span class="string">'phone'</span>]
+&gt;&gt;&gt; string1.split()
+[<span class="string">'tv,pc,notebook,phone'</span>]
+<span class="comment">#举例</span>
+s = <span class="string">"apple,peach,ban,pear"</span>
+li = s.split(<span class="string">","</span>)  调用split()函数来进行分割
+<span class="built_in">print</span>(li,end=<span class="string">" "</span>)
+注意：split中的分隔符，我们根据字符串中的实际情况而定。如果使用了不正确的分隔符，str.split(<span class="string">'错误分隔符'</span>)操作结果str.split(),会将整个字符串作为列表的一个元素。
+
+5)，strip() 字符串左右两端去除指定字符（默认情况，去除空格）
+函数格式：str.strip([指定字符])
+返回值：根据指定的字符，对字符串进行两端去除其内容，返回一个新的字符串。如果字符串中间有空格或指定字符，那么该函数不起作用。如果指定的字符在字符串左右两端不存在，那么将返回字符串本身。
+例如：
+<span class="comment">#举例缺省情况</span>
+string1 = <span class="string">'  hello world  '</span>
+&gt;&gt;&gt; string1.strip()
+<span class="string">'hello world'</span>
+&gt;&gt;&gt; <span class="built_in">print</span>(string1)
+  hello world   
+<span class="comment">#举例指定字符</span>
+string1 = <span class="string">'awelcom to zhengzhoua'</span>
+&gt;&gt;&gt; string1.strip(<span class="string">'a'</span>)
+<span class="string">'welcom to zhengzhou'</span>
+注意：
+1）字符串类型，一旦被声明赋值后，其内容是不可被改变的，如果需要改变原字符串变量的值，必须对其进行重新赋值。
+2）如果指定字符内容为一个字符序列，那么意味着使用strip去除左右两端指定字符时，只要符合字符序列中的某一位，就进行去除
+
+6),replace()替换函数
+函数格式：str.replace(old,new[,max])
+返回值：将指定字符串（old）替换为新字符串（new）,最大可以替换max次。替换完成后，返回一个新字符串。
+注意：此处的max参数，主要用来指定替换的次数，如果该参数缺省，表示替换里面所有符合条件的字符串。
+<span class="comment">#例如：</span>
+string1 = <span class="string">'honor,oppo,vivo,apple,oppo,oppo'</span>
+&gt;&gt;&gt; old_str = <span class="string">'oppo'</span>
+&gt;&gt;&gt; new_str = <span class="string">'xiaomi'</span>
+&gt;&gt;&gt; string1.replace(old_str, new_str)     <span class="comment"># 替换所有的oppo</span>
+<span class="string">'honor,xiaomi,vivo,apple,xiaomi,xiaomi'</span>
+&gt;&gt;&gt; string1.replace(old_str, new_str,2)   <span class="comment">#替换指定次数，即两处oppo</span>
+<span class="string">'honor,xiaomi,vivo,apple,xiaomi,oppo'</span>
+
+4),input():标准输入，使用键盘输入数字或字符串
+
+5),字符串也可以像列表一样进行操作，比如：字符串长度len(str1)
+
+6),字符串中的指定索引位，返回对应的字符，有一个单独的关系的对应表，str[index]其中index从左往右，从下标0开始，到len(str1)-1结束。
+
+7),从右往左，从下标-1开始，到-len(str)。
+
+8),“+”称为字符串的连接符，将左右两端的字符串连接成为一个新的字符串。”a”+”a” 得到是“aa”
+
+9),<span class="string">"*"</span>称为字符串的重复符，可以将指定的字符串重复N次,生成一个新的字符串。比如是”a“*1、2、3
+<span class="comment">#举例</span>
+you = <span class="string">"rice"</span>
+he = <span class="string">"corn"</span>
+n = you+he <span class="comment">#把两个字符串链接起来，生成一个新的字符串</span>
+n = you*3 <span class="comment">#是可以直接输出连个三个</span>
+<span class="built_in">print</span>(n)
+
+10),“<span class="keyword">in</span>”称为字符串的检测运算符，将指定的字符或子字符串在原有字符串中是否存在，如果存在返回True，如果不存在返回False。
+例如():
+string1 = <span class="string">'hello world'</span>
+substr = <span class="string">'e'</span>
+substr <span class="keyword">in</span> string1
+True
+
+substr = <span class="string">'ll'</span>
+substr <span class="keyword">in</span> string1
+True
+
+substr = <span class="string">'wr'</span>
+substr <span class="keyword">in</span> string1
+False
+
+11),字符串对象一旦创建，其内容就不能再修改。不能通过对其某一位置进行赋值而改变字符串，但是可以通过建立一个新的字符串并以同一个变量名对其进行赋值
+
+</code></pre>
+<h3 id="4-字符串分片：a-‘hello’"><a href="#4-字符串分片：a-‘hello’" class="headerlink" title="4,字符串分片：a = ‘hello’"></a>4,字符串分片：a = ‘hello’</h3><pre><code class="bash">第一种用法： a[(start):(end)]  该方法就获取到原字符串“hello”的下标从1-3之间（或者从1到最后一位）的字符序列，构成一个新的字符串。
+<span class="comment">#举例</span>
+string1 = hello world
+string1[0] =&gt; h    到string1[10] =&gt; d
+string1[-1] =&gt; d   到string1[-11] =&gt; h
+
+第二种用法： a[(start)::(第几个)] 该方法表示从下标位start开始，然后根据其位置获取向后的第几位对应的字符内容。a[1::3] =&gt; eo
+特殊用法： a[::-1]代表将该字符串进行反转输出，即hello =&gt; olleh
+
+第三种用法: 格式：str[start,end,step]
+start：代表切片开始的索引位
+end: 代表切片结束的索引位（但是不会输出该索引位指向的字符）
+step：代表每隔次几个字符个数截取一个
+<span class="comment">#举例</span>
+string1 = hello world
+string1[0:3] =&gt; hel   从索引位为0的字符开始，到索引位3结束，但不包括索引
+位3所指向的字符。
+string1[2:4] =&gt; ll
+string1[0:-1] =&gt; hello worl 
+string1[0:8:2] =&gt; hlow
+<span class="comment">#举例</span>
+str1[:]  =&gt; <span class="string">'hello world'</span> 等于将字符串进行复制
+str1[:5] =&gt; <span class="string">'hello'</span>       如果没有标明开始索引位，默认从0开始
+str1[::] =&gt; <span class="string">'hello world'</span>  等同于str1[:]
+</code></pre>
+<h3 id="5-利用find-和index-函数找出索引位数值"><a href="#5-利用find-和index-函数找出索引位数值" class="headerlink" title="5,利用find()和index()函数找出索引位数值"></a>5,利用find()和index()函数找出索引位数值</h3><pre><code class="bash">message = <span class="string">"hello python world"</span>
+i = message.find(<span class="string">"w"</span>)  利用find找出字符串下标位数
+i = message[3]   可以通过下标位数直接索引出字符串中的某个元素。
+i = message.index(<span class="string">"hello"</span>)
+<span class="built_in">print</span>(i)
+<span class="comment">#举例：</span>
+string1 = <span class="string">'apple,banana,apple,apple'</span>
+&gt;&gt;&gt; string1.find(<span class="string">'apple'</span>)
+0
+&gt;&gt;&gt; string1.find(<span class="string">'apple'</span>,5)
+13
+&gt;&gt;&gt; string1.find(<span class="string">'apple'</span>,7,20)
+13
+&gt;&gt;&gt; string1.find(<span class="string">'apple'</span>,14,20)
+-1
+&gt;&gt;&gt; string1.find(<span class="string">'apple'</span>,14,24)
+19 
+
+2,回文(正序排列和倒序排列)字符片分割两种方式：如下操作
+a = <span class="string">"abcde"</span>     
+<span class="built_in">print</span>(<span class="string">"forward:%s \n backward:%s"</span>%(a,a[::-1]))
+<span class="built_in">print</span>(a[::-1]) <span class="comment">#反转排列,两个分号的作用</span>
+<span class="built_in">print</span>(a[1::3]) <span class="comment">#1是从字符串下标位开始数就是b,然后以b为零开始数到3就是e</span>
+<span class="built_in">print</span>(a[1:4])   <span class="comment">#1是从字符串下标位开始数就是b,然后重新以下标位数值开始数到3之前保留中间字符串。</span>
+
+3,使用步长，实现字符串反转
+string1[-1::-1]  =&gt;dlrow olleh    从索引位-1开始，一直到字符串结束，反向输出字符
+但是下列操作，会返回一个空字符串：
+string1[-1:4]  =&gt; <span class="string">''</span>
+string1[-1:-5] =&gt; <span class="string">''</span>
+
+</code></pre>
+<h3 id="字符串练习题"><a href="#字符串练习题" class="headerlink" title="字符串练习题"></a>字符串练习题</h3>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/16/python_str-4/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-python_circle-3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/16/python_circle-3/">Python——爬虫</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/16/python_circle-3/" class="archive-article-date">
+  	<time datetime="2018-07-16T09:17:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>好好学习，天天向上！
+</code></pre><h2 id="三，循环控制语句"><a href="#三，循环控制语句" class="headerlink" title="三，循环控制语句"></a>三，循环控制语句</h2><p>导向目录：for，while ,if</p>
+<h3 id="1-循环控制语句for的操作如下"><a href="#1-循环控制语句for的操作如下" class="headerlink" title="1,循环控制语句for的操作如下"></a>1,循环控制语句for的操作如下</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>循环</span><br><span class="line">第一种：（推荐）</span><br><span class="line">格式：<span class="keyword">for</span> 变量 <span class="keyword">in</span> 集合：</span><br><span class="line">    代码</span><br><span class="line">说明：这种循环方式，我们称为快速迭代循环，能够对集合数据进行遍历。</span><br><span class="line">注意：这种方式只能用在集合数据上，比如：字符串、列表、元组、字典等内容。</span><br><span class="line"><span class="comment">#例如：</span></span><br><span class="line">string1 = <span class="string">'hello world'</span></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> string1:</span><br><span class="line">	<span class="built_in">print</span>(item)</span><br><span class="line"></span><br><span class="line">第二种：传统式，配合range()函数使用。通过range()函数指定了循环的范围。</span><br><span class="line"><span class="keyword">for</span> i range(循环次数):</span><br><span class="line">    代码</span><br><span class="line">说明：这种循环方式，采用指定循环次数，对目标集合进行遍历。其做法主要是让循环与集合的下标同步，在循环次数时一同取出集合指定下标的对应值。</span><br><span class="line">range()函数：</span><br><span class="line">函数格式：</span><br><span class="line">range(stop) :缺省情况下，表示从0开始，循环n次</span><br><span class="line">range(star,stop[,step])</span><br><span class="line">其中，star：循环开始的值，stop：循环次数，step：循环步长。注意此处循环，会根据stop中的值循环规定的次数，但是显示时会从start位置开始。</span><br><span class="line"><span class="comment">#例如：</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(3,10):</span><br><span class="line">	<span class="built_in">print</span>(i,end=<span class="string">' '</span>)</span><br><span class="line">3 4 5 6 7 8 9 </span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(5,10):</span><br><span class="line">	<span class="built_in">print</span>(i,end=<span class="string">' '</span>)</span><br><span class="line">5 6 7 8 9 </span><br><span class="line">range(1,10)  </span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>循环的常用方式：嵌套模式</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(次数): <span class="comment">#这里循环一次</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(次数): <span class="comment">#这里循环n次</span></span><br><span class="line">    </span><br><span class="line">注意：在这种嵌套表示的过程中，变量的位置尤为重要，通用原则为：如果变量的值需要通过外层循环来获取或生成，那么我们可以将其设为全局变量，即与外层循环<span class="keyword">for</span>同等级的变量，如果变量需要在内层循环中生成或获取，我们通常会在外循环中声明，即与内循环同级。</span><br></pre></td></tr></table></figure>
+<h3 id="2-for循环的练习题"><a href="#2-for循环的练习题" class="headerlink" title="2,for循环的练习题"></a>2,for循环的练习题</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line">a =  list() <span class="comment">#放上面才会有[1, 2, 3, 4, 5, 6, 7, 8, 9]</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span>  range(1,10):</span><br><span class="line">    a = list()  <span class="comment"># 放在这里时会有 [1] [2] [3] [4] [5] [6] [7] [8] [9]</span></span><br><span class="line">    a.append(i)</span><br><span class="line"><span class="built_in">print</span>(a,end =<span class="string">" "</span>) </span><br><span class="line"></span><br><span class="line">a = [1,2,3,4]</span><br><span class="line">n = 0</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> range(len(a)): <span class="comment">#现在是打印长度，然后遍历长度</span></span><br><span class="line"><span class="comment">#for i in range(101): #这是循环出</span></span><br><span class="line">    n = n +i</span><br><span class="line"><span class="built_in">print</span>(n) <span class="comment">#当print放在前面时求和</span></span><br><span class="line"></span><br><span class="line">a = [1,2,3,4,5] </span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(a)): <span class="comment">#先遍历索引位，然后根据索引位追加到列表中的值</span></span><br><span class="line">  <span class="built_in">print</span>(a[i])</span><br><span class="line"></span><br><span class="line">li = [1,3,4,<span class="string">'alex'</span>,[3,7,8,<span class="string">'taibai'</span>],5,<span class="string">'ritian'</span>]</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> range(len(li)):</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">type</span>(li[x]) == list: 首先是用类型判断子列表是不是列表</span><br><span class="line">        <span class="keyword">for</span> n <span class="keyword">in</span> li[x]:  这里遍历里面的子列表的元素</span><br><span class="line">            <span class="built_in">print</span>(n)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(li[x])  </span><br><span class="line"></span><br><span class="line"><span class="comment">#双重for循环来变换三角型</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(0,5):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(0,5): <span class="comment">#输出是正方形</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"*"</span>,end=<span class="string">" "</span>)</span><br><span class="line">    <span class="built_in">print</span>() </span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(0,5):  <span class="comment">#输出是右三角</span></span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> range(0,5-(i+1)):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">" "</span>,end=<span class="string">" "</span>)</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(0,i+1):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"*"</span>,end=<span class="string">" "</span>)    </span><br><span class="line">    <span class="built_in">print</span>()   </span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(0,5):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(0,i+1): <span class="comment">#输出是左三角</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"x"</span>,end=<span class="string">" "</span>)</span><br><span class="line">    <span class="built_in">print</span>() </span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(0,5): <span class="comment">#左下三角</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(0,5-i):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"x"</span>,end=<span class="string">" "</span>)</span><br><span class="line">    <span class="built_in">print</span>()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(0,5): <span class="comment">#右下三角形</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(0,i):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">" "</span>,end=<span class="string">" "</span>)</span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> range(0,5-i):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"x"</span>,end=<span class="string">" "</span>) </span><br><span class="line">    <span class="built_in">print</span>()               </span><br><span class="line">   </span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(0,10): <span class="comment">#等腰三角</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(0,9-i):</span><br><span class="line">        <span class="built_in">print</span>(end=<span class="string">""</span>)</span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> range(9-i,10):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"*"</span>,end= <span class="string">" "</span>)</span><br><span class="line">    <span class="built_in">print</span>()                 </span><br><span class="line"></span><br><span class="line">推导式或者是嵌套式：例题</span><br><span class="line">l = [1,1,2,2,3,4,5,5,6,6,7,8] 去重</span><br><span class="line"><span class="built_in">print</span>([ls.append(i)) <span class="keyword">for</span> I <span class="keyword">in</span> l  <span class="keyword">if</span> i not <span class="keyword">in</span> ls])</span><br><span class="line">列如</span><br><span class="line"><span class="built_in">print</span>([x**x <span class="keyword">for</span> x <span class="keyword">in</span> range(1,5)])</span><br><span class="line">列如</span><br><span class="line"><span class="built_in">print</span>([(i,j) <span class="keyword">for</span> i <span class="keyword">in</span> range(0,3,2)  <span class="keyword">for</span> j <span class="keyword">in</span> range(0,3,2)])</span><br><span class="line"><span class="comment">#输出[(0, 0), (0, 2), (2, 0), (2, 2)]</span></span><br><span class="line">列如</span><br><span class="line">dic[<span class="string">"name_list"</span>]=[i.upper() <span class="keyword">for</span> i <span class="keyword">in</span> dic[<span class="string">"name_list"</span>]]</span><br><span class="line"><span class="built_in">print</span>(dic)<span class="comment">#推导式就是放在列表中的，利用for循环 不加range</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-条件控制语句if"><a href="#3-条件控制语句if" class="headerlink" title="3,条件控制语句if"></a>3,条件控制语句if</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1）条件语句</span><br><span class="line">单判断：</span><br><span class="line"><span class="keyword">if</span> 条件:                    <span class="keyword">if</span>  条件:</span><br><span class="line">   代码                         代码</span><br><span class="line">双分支：                     <span class="keyword">elif</span> 条件：</span><br><span class="line"><span class="keyword">if</span> 条件：                          代码</span><br><span class="line">   代码                     <span class="keyword">elif</span> 条件：</span><br><span class="line"><span class="keyword">else</span>:                           代码</span><br><span class="line">   代码                     ......</span><br><span class="line">多分枝结构                   <span class="keyword">else</span>:</span><br><span class="line">经常和<span class="keyword">for</span>循环一起是使用          代码</span><br></pre></td></tr></table></figure>
+<h3 id="4-循环控制语句while"><a href="#4-循环控制语句while" class="headerlink" title="4,循环控制语句while"></a>4,循环控制语句while</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>循环</span><br><span class="line">格式：<span class="keyword">while</span> 条件：</span><br><span class="line">           代码</span><br><span class="line"></span><br><span class="line"><span class="built_in">break</span>与<span class="built_in">continue</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">break</span>：当满足指定条件时，<span class="built_in">break</span>表示中断（中止）此循环，如果循环外部还有其他代码则继续向下执行。</span><br><span class="line"></span><br><span class="line"><span class="built_in">continue</span>：当满足指定条件时，<span class="built_in">continue</span>表示结束本次循环，开始下一次循环。注意<span class="built_in">continue</span>并没有退出循环。</span><br><span class="line">同时，这两个关键字都是必须配合循环语句来使用，不能单独用在其他地方，比如：<span class="keyword">if</span></span><br></pre></td></tr></table></figure>
+<h3 id="练习题"><a href="#练习题" class="headerlink" title="练习题"></a>练习题</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">dic = &#123;</span><br><span class="line">    <span class="string">"1"</span>:<span class="string">"电脑"</span>,</span><br><span class="line">    <span class="string">"2"</span>:<span class="string">"手机"</span>,</span><br><span class="line">    <span class="string">"3"</span>:<span class="string">"游艇"</span>,</span><br><span class="line">    <span class="string">"4"</span>:<span class="string">"鼠标垫"</span></span><br><span class="line">    &#125;</span><br><span class="line">msg = <span class="string">" "</span></span><br><span class="line"><span class="keyword">while</span> True: <span class="comment">#当判断为真会继续执行下去</span></span><br><span class="line">    person = input(<span class="string">"请你输入商品序号或者按q退出："</span>)</span><br><span class="line">    <span class="keyword">if</span> person == <span class="string">"q"</span> or person == <span class="string">"Q"</span>:</span><br><span class="line">        <span class="built_in">break</span></span><br><span class="line">    <span class="keyword">else</span>: <span class="comment">#判断语句可以嵌套式来写</span></span><br><span class="line">        <span class="keyword">if</span> person <span class="keyword">in</span> dic.keys(): </span><br><span class="line"></span><br><span class="line">            msg =(<span class="string">"序号   商品"</span>)</span><br><span class="line">            msg = <span class="string">"&#123;0&#125;   &#123;1&#125;"</span>.format(person,dic[person])</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            msg = (<span class="string">"输入商品错误"</span>)     </span><br><span class="line">    <span class="built_in">print</span>(msg)</span><br></pre></td></tr></table></figure>
+<p>###<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> x <span class="keyword">in</span> x:</span><br><span class="line">    <span class="keyword">if</span> 。。。:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        。。。。</span><br><span class="line"><span class="keyword">else</span>：</span><br><span class="line">    。。。。</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> Ture:        </span><br><span class="line">    <span class="keyword">if</span> x == x:</span><br><span class="line">        <span class="keyword">if</span> </span><br><span class="line"></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">if</span> </span><br><span class="line"></span><br><span class="line">        <span class="keyword">else</span></span><br></pre></td></tr></table></figure></p>
+<p>##<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ 在这里写东西</span><br></pre></td></tr></table></figure></p>
+<p>##<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ 在这里写东西</span><br></pre></td></tr></table></figure></p>
+<h1 id="练习题-1"><a href="#练习题-1" class="headerlink" title="练习题"></a>练习题</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在这里写东西</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/16/python_circle-3/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-python_integer-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/16/python_integer-2/">Python——爬虫</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/16/python_integer-2/" class="archive-article-date">
+  	<time datetime="2018-07-16T09:17:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>好好学习，天天向上！
+</code></pre><h2 id="二，基本整型类型"><a href="#二，基本整型类型" class="headerlink" title="二，基本整型类型"></a>二，基本整型类型</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">常见数据类型：整型(常用)，浮点型布尔型，复数型，</span><br></pre></td></tr></table></figure>
+<h3 id="1-整型数据"><a href="#1-整型数据" class="headerlink" title="1,整型数据"></a>1,整型数据</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">概念：我们通常根据计算机中数据编码格式，将整型分为：二进制、八进制、十进制、十六进制四种类型。</span><br><span class="line">进制间的转换。</span><br><span class="line">bin() <span class="comment"># 将数值转为二进制类型</span></span><br><span class="line">oct() <span class="comment"># 将数值转为对应的八进制类型</span></span><br><span class="line">int() <span class="comment"># 将数值转为对应的十进制类型</span></span><br><span class="line">hex() <span class="comment"># 将数值转为对应的十六进制类型</span></span><br><span class="line"><span class="string">"%o %x"</span>%(120,120)，字符串格式表达式也可以表示八进制和十六进制</span><br></pre></td></tr></table></figure>
+<h3 id="2-整型的运算符运算-floor-ceil-round-abs-pow-divmod"><a href="#2-整型的运算符运算-floor-ceil-round-abs-pow-divmod" class="headerlink" title="2,整型的运算符运算:floor,ceil,round,abs,pow,divmod"></a>2,整型的运算符运算:floor,ceil,round,abs,pow,divmod</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">1）算术运算符：+、-、*、/</span><br><span class="line">在python中默认的数据类型时浮点型，因此在执行算术运算时5/2=2.5，而不是2.</span><br><span class="line"><span class="comment">#求 %：两数进行求余运算，如果分子大于分母，得余数；</span></span><br><span class="line">                    如果分子小于分母，直接得分子。</span><br><span class="line">注意：只有分子除尽分母时，结果才返回0</span><br><span class="line"><span class="comment">#求 //：两数相除取整数，注意，此处得到的整数，为结果的整数部分不进行四舍五入操作。</span></span><br><span class="line"><span class="comment">#求 **：A**B 数A连续相乘B次，也可以说数A 的B次幂</span></span><br><span class="line">补充：</span><br><span class="line">2)对于数值运算的四舍五入操作</span><br><span class="line">math包中的floor()和 ceil()函数</span><br><span class="line">import math</span><br><span class="line">math.floor(3/2) =&gt;1   等同于 3//2  只舍不入</span><br><span class="line">math.ceil(3/2) =&gt;2    此处，只要有小数位就进位，不管小数部分是否大于等于5  只入不舍.</span><br><span class="line">3），数值函数</span><br><span class="line">(1),round()函数进行四舍五入操作，round(数值[,保留小数位数])</span><br><span class="line">round(1.5)=&gt;2  </span><br><span class="line">round(1.2)=&gt;1</span><br><span class="line">round(1,4,1)=&gt;1.4  意味着保留小数点后一位</span><br><span class="line">(2),求幂运算pow()</span><br><span class="line">pow(2,3) =&gt;8 等同于2**3</span><br><span class="line">4),求绝对值</span><br><span class="line">abs(-10) =&gt; 10</span><br><span class="line">                        补充：</span><br><span class="line">abs(x)  绝对值，返回x的数值（去除正负符号）</span><br><span class="line">round(x,n)  四舍五入，n代表了要保留的小数点后的位数。注意，Python的四舍五入以.5为界限，超过部分才值入，不超过舍去。但是Python 3中的round函数，得到的值是一个近似值，所以如果对结果的精确度有要求，慎用。</span><br><span class="line">divmod(x,y)  对x与y 的值进行除法运算和求余运算，以元组的形式返回两个结果值</span><br><span class="line">pow(x,y)  求x的y次幂</span><br><span class="line"></span><br><span class="line">5),求两数相除的商与余数</span><br><span class="line">divmod(5,3) =&gt;(1,2)    类似5%3=&gt;2</span><br><span class="line">6),运算符</span><br><span class="line">i = 10 </span><br><span class="line">i = i + 5  等同于  i+=5</span><br><span class="line">i = i - 5  等同于  i-=5</span><br><span class="line">i = i * 5  等同于  i*=5</span><br><span class="line">i = i / 5  等同于  i/=5</span><br><span class="line">i = i//5   等同于  i//=5</span><br><span class="line">i = i ** 2 等同于  i**=2</span><br><span class="line">i = i % 3  等同于  i%=3</span><br></pre></td></tr></table></figure>
+<h3 id="3-整数的逻辑运算符"><a href="#3-整数的逻辑运算符" class="headerlink" title="3,整数的逻辑运算符"></a>3,整数的逻辑运算符</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">与 &amp;、或 |、非 ！</span><br><span class="line">x&amp;y  <span class="comment">#x与y进行and操作</span></span><br><span class="line">x|y  <span class="comment">#x与y进行or操作</span></span><br><span class="line">x^y  <span class="comment">#x与y进行XOR操作</span></span><br><span class="line">~x   <span class="comment">#对x求反转</span></span><br><span class="line">x&lt;&lt;y <span class="comment">#左位移</span></span><br><span class="line">x&gt;&gt;y <span class="comment">#右位移</span></span><br></pre></td></tr></table></figure>
+<h3 id="4-逻辑运算符：-and、or、not"><a href="#4-逻辑运算符：-and、or、not" class="headerlink" title="4,逻辑运算符： and、or、not"></a>4,逻辑运算符： and、or、not</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">and:左右两端都是布尔型，其结果也为布尔型。当左右两端的值都为True，其结果才为True，有一方为False，其结果一定为False。</span><br><span class="line"></span><br><span class="line">or:左右两端都是布尔型，其结果也为布尔型。当左右两端的值有一方为True时，其结果就为True，只有在双方都为False时，其结果才为False。</span><br><span class="line"></span><br><span class="line">not：属于单目运算，其结果也是布尔型。其作用就是求反，如果变量为True，结果为False，如果为False，其结果为True。</span><br><span class="line">逻辑运算、比较运算常用在条件中使用。同时，这两种运算符经常配合使用。</span><br></pre></td></tr></table></figure>
+<h3 id="5-布尔型操作-布尔值：True，False"><a href="#5-布尔型操作-布尔值：True，False" class="headerlink" title="5,布尔型操作(布尔值：True，False)"></a>5,布尔型操作(布尔值：True，False)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1),python中布尔型分为True和False两种，但是在实际操作中我们也可以将其与1和0等同。与 and，或 or， 非 not</span><br><span class="line">2),布尔型常用在逻辑运算和判断条件中，作为结果来使用。但是也可以参与算术运算，当进行算术运算时，True作为1、False作为0参与运算。</span><br><span class="line">3),a = True     a + 1 =&gt; 2</span><br><span class="line">b = False b + 1 =&gt;1</span><br><span class="line">a + b =&gt; 1</span><br><span class="line">注意：通常我们在python，不能将布尔型参与算术运算的。布尔型一般参加比较运算或逻辑运算，其返回值还是布尔型。</span><br><span class="line">布尔型求非： not</span><br><span class="line">not a =&gt; False</span><br><span class="line">not b =&gt; True</span><br></pre></td></tr></table></figure>
+<h3 id="6-浮点数"><a href="#6-浮点数" class="headerlink" title="6,浮点数"></a>6,浮点数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int(): 可以将浮点型数转换为整数，返回其整数部分。</span><br><span class="line">int（2.8）=》2</span><br><span class="line">需要先引入import math包后，才能调用</span><br><span class="line">floor() <span class="comment"># 只舍不入</span></span><br><span class="line">ceil()  <span class="comment"># 只入不舍</span></span><br><span class="line">math.floor(),math.ceil()</span><br><span class="line">is_integer()  <span class="comment">#判断数值是否为整数，返回值为布尔型</span></span><br><span class="line">float.as_integer_ratio(x) <span class="comment">#判断给定的浮点数的小数</span></span><br><span class="line">注意：浮点数在Python中，其数据本身就不精确。所以使用round()，decimal等运算时，产生的结果也是不精确的。如果，我们需要精确的结果，采用整数或者字符串来表示。使用decimal包，来提供固定的十进制的数值，建议使用整型和字符串来表示。不要采用浮点型，因为浮点型不精确。</span><br><span class="line">import decimal</span><br></pre></td></tr></table></figure>
+<h3 id="7-补充-精确十进制的算法"><a href="#7-补充-精确十进制的算法" class="headerlink" title="7,补充(精确十进制的算法)"></a>7,补充(精确十进制的算法)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">在python中，我们通过阅读官方文档了解到，浮点数是一种近似值的表示，因此直接使用浮点数时常常出现精度丢失或不匹配情况发生。</span><br><span class="line">python中提出了Decimal对象来进行解决，通过引入 import decimal生成一个decimal对象，将浮点数转换为decimal类型，可以支持完成对应的算术运算。例如：</span><br><span class="line"></span><br><span class="line">from decimal import Decimal   <span class="comment"># 引入decimal包中的Deciaml对象</span></span><br><span class="line">f1 = 12.4556</span><br><span class="line">f2 = 24.3</span><br><span class="line">c = Decimal.from_float(f1)     <span class="comment"># 将浮点数转换为decimal对象</span></span><br><span class="line">a = Decimal(f1).quantize(Decimal(<span class="string">'0.00'</span>)) <span class="comment">#将浮点数转换为decimal对象，同时指定该数值的精度，保留小数点后两位，并自动完成四舍五入。</span></span><br><span class="line">b = Decimal(f2).quantize(Decimal(<span class="string">'0.00'</span>))</span><br><span class="line"><span class="built_in">print</span>((a*b).quantize(Decimal(<span class="string">'0.00'</span>))</span><br></pre></td></tr></table></figure>
+<p>###<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ 在这里写东西</span><br></pre></td></tr></table></figure></p>
+<h2 id="练习题"><a href="#练习题" class="headerlink" title="练习题"></a>练习题</h2>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/16/python_integer-2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-python_synatx-1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     

@@ -159,20 +159,20 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-python_senior" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-python_class-14" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/01/python_senior/">Python——爬虫</a>
+      <a class="article-title" href="/2018/08/10/python_class-14/">Python——爬虫</a>
     </h1>
   
 
         
-        <a href="/2018/08/01/python_senior/" class="archive-article-date">
-  	<time datetime="2018-08-01T13:32:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-01</time>
+        <a href="/2018/08/10/python_class-14/" class="archive-article-date">
+  	<time datetime="2018-08-10T13:36:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-10</time>
 </a>
         
       </header>
@@ -180,13 +180,16 @@
     <div class="article-entry" itemprop="articleBody">
       
         <pre><code>好好学习，天天向上！
-</code></pre><h2 id="高级特性"><a href="#高级特性" class="headerlink" title="高级特性"></a>高级特性</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ 在这里写东西</span><br></pre></td></tr></table></figure>
-<h3 id="含range-操作的格式："><a href="#含range-操作的格式：" class="headerlink" title="含range()操作的格式："></a>含range()操作的格式：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">range()函数自身并不会自动产生整数序列，它需要使用其他方式来调用它才会产生。</span><br></pre></td></tr></table></figure>
-<h3 id="列表推导式生成式"><a href="#列表推导式生成式" class="headerlink" title="列表推导式生成式"></a>列表推导式生成式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">格式：[表达式或函数  <span class="keyword">for</span> x <span class="keyword">in</span> 序列]</span><br><span class="line">含义：通过生成式中的循环，逐一产生x值，表达式使用X值进行相关运算。最终结果作为列表的元素。也就意味着，循环多少次，就会产生多少个相关元素。</span><br></pre></td></tr></table></figure>
-<h3 id="迭代器-Iterator"><a href="#迭代器-Iterator" class="headerlink" title="迭代器(Iterator)"></a>迭代器(Iterator)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">1）概念：迭代器访问元素，是从第一个元素开始，依次访问后续元素直到结束。其中迭代器只能向前不能回退。其包含两个方法iter()和next()。</span><br><span class="line">iter()用来创建一个迭代器，next()用来访问下一个元素。</span><br><span class="line">目前我们所学的字符串、列表、元组都可以创建迭代器，那么他们也是可迭代化的对象。</span><br><span class="line">迭代器两个步骤：</span><br><span class="line">1、当调用next()函数，会将迭代器当前位置状态进行改变</span><br><span class="line">2、会将下一个元素进行返回</span><br><span class="line"></span><br><span class="line">迭代器的延迟作用：迭代器生成的元素并不是在迭代器声明时，就准备好了的。通常时在调用迭代器需要提供该元素时生成的，也就是说只有在我们需要的时候迭代器才产生相关元素，不需要时并不会主动的生成相关元素。我们可以把迭代器看成一个容器，到我们需要时使用next()方法返回容器中的下一个值。</span><br><span class="line">迭代器实现了工厂模式的对象，它在你每次访问下一个值的时候给你返回。</span><br><span class="line"></span><br><span class="line">可迭代化（iterable）：表明相关的对象可以创建迭代器对象，同时他们自身都是可以进行<span class="keyword">for</span>数据遍历的。我们可以使用isinstance()来判断对象是否为可迭代化</span><br><span class="line"></span><br><span class="line">from collections import Iterable</span><br><span class="line">string = <span class="string">'hello'</span></span><br><span class="line"><span class="built_in">print</span>(isinstance(string, Iterable))  =&gt; True</span><br><span class="line">函数格式：isinstance(对象，类型)</span><br><span class="line">返回值：布尔值</span><br><span class="line">结果：如果指定的对象属于指定的类型，那么返回True，反之返回False</span><br><span class="line"></span><br><span class="line">enumerate()函数</span><br><span class="line">函数格式：enumerate(iterable)</span><br><span class="line">返回值：生成一个枚举对象</span><br><span class="line">例如：</span><br><span class="line">enum = enumberate([<span class="string">'one'</span>,<span class="string">'two'</span>,<span class="string">'three'</span>])</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> enum:</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line">    </span><br><span class="line">(0, <span class="string">'one'</span>)</span><br><span class="line">(1, <span class="string">'two'</span>)</span><br><span class="line">(2, <span class="string">'three'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i,value <span class="keyword">in</span> enum:</span><br><span class="line">    <span class="built_in">print</span>(i, value)</span><br><span class="line">   </span><br><span class="line">0 one</span><br><span class="line">1 two</span><br><span class="line">2 three</span><br></pre></td></tr></table></figure>
-<h3 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1、创建方式</span><br><span class="line">第一种，使用列表推导式，将[]改为()，生成一个generator对象</span><br><span class="line">第二种，使用函数方式，采用yield关键字来实现</span><br><span class="line">2、使用</span><br><span class="line">生成器我们通常可以认为一种特殊的迭代器，但是它不需要像迭代器一样去实现__iter__,__next__方法。只需要使用yield关键字，该关键字可以在每次调用生成器函数时起到暂停作用，并将其值进行返回。同时还会记录当前运行值的状态。</span><br><span class="line"></span><br><span class="line">总结：迭代器和生成器</span><br><span class="line">1、容器是一系列的元素集合，str、list、<span class="built_in">set</span>、dict对象都可以看作是容器，容器都可以进行迭代（即用在<span class="keyword">while</span>或<span class="keyword">for</span>循环），凡是这样的容器我们都称为可迭代化对象（Iterable）。</span><br><span class="line">2、可迭代化对象都实现了__iter__方法，该方法返回一个迭代器对象。</span><br><span class="line">3、迭代器都拥有一个状态字段，用于记录下次迭代返回值。它实现了__next__和__iter__方法，迭代器不会一次性把所有的元素都加载到内存中，而是在需要的时候才生成返回结果。</span><br><span class="line">4、生成器是一种特殊的迭代器，它的返回值不是通过<span class="built_in">return</span>来返回的，而是通过yield来返回的。</span><br></pre></td></tr></table></figure>
-<h3 id="补充：拷贝的概念"><a href="#补充：拷贝的概念" class="headerlink" title="补充：拷贝的概念"></a>补充：拷贝的概念</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">copy()(浅拷贝)和deepcopy()（深拷贝）</span><br><span class="line">1、浅拷贝：我们使用copy()函数将列表中的元素，进行复制，通常对于普通的列表（一维）能够实现完全的值传递，即将自身的副本赋值给另外一个列表。例如：</span><br><span class="line">ls1 = [1,2,3,4,5]</span><br><span class="line">ls2 = ls1.copy()  <span class="comment"># 将ls1中的元素赋值给ls2,此时他们的值相等的</span></span><br><span class="line">ls1[3] = 6        <span class="comment">#此时，对ls1中索引位3的值进行修改，变为6</span></span><br><span class="line">观察其结果，我们可以发现ls1 =&gt; [1,2,3,6,5],但是ls2 =&gt;[1,2,3,4,5]没有发生改变</span><br><span class="line">一旦，ls1的列表元素结构发生变化，出现子列表嵌套。</span><br><span class="line">如：ls1 = [1,2,3,[<span class="string">'one'</span>,<span class="string">'two'</span>],5]，这是再使用copy()对ls2赋值，我们进行如下修改：</span><br><span class="line">ls1 = [1,2,3,[<span class="string">'one'</span>,<span class="string">'two'</span>],5]</span><br><span class="line">ls2 = ls1.copy()</span><br><span class="line">ls1[3][0] = <span class="string">'three'</span></span><br><span class="line">我们观察其结果，可以发现ls1 =&gt; [1,2,3,[<span class="string">'three'</span>,<span class="string">'two'</span>],5],同时ls2也会随之变化 ls2 =&gt; [1,2,3,[<span class="string">'three'</span>,<span class="string">'two'</span>],5]。</span><br><span class="line">总结：这种现象我们成为浅拷贝，copy()函数进行组合数据类型拷贝时，只能控制第一层元素进行值传递，一旦出现嵌套的子列表、子字典等内容，将不再拷贝其内容的值，而是直接将这个嵌套的内存地址，赋值给ls2。所以会造成一旦原列表改变子列表内容后，目标列表中对应的子列表也发生改变。</span><br><span class="line">2、深拷贝：我们需要引入copy这个模块，调用deepcopy()函数。写法如下：</span><br><span class="line">import copy</span><br><span class="line"></span><br><span class="line">ls1 = [1,2,3,[<span class="string">'one'</span>,<span class="string">'two'</span>],5]</span><br><span class="line">ls2 = copy.deepcopy(ls1)</span><br><span class="line">ls1[3][0] = <span class="string">'three'</span></span><br><span class="line">此时，我们发现ls1内容发生改变后，但是ls2并没有随之改变，那么也就是意味着deepcopy()将ls1中内容，包括嵌套里面的元素都进行了副本赋值，给ls2。因此，他们只是值相同，并没有指向同一个内存地址。</span><br><span class="line"></span><br><span class="line">sort()与sorted()</span><br><span class="line">1、sort()函数提供排序功能，同时该排序是实现了永久性排序，即会改变原有列表的元素位置。</span><br><span class="line">2、sorted()函数提供排序功能，但是该排序进行了临时性排序，即只是产生一个有序结果，并不会真正改变原列表中元素的位置。</span><br></pre></td></tr></table></figure>
-<h1 id="练习题"><a href="#练习题" class="headerlink" title="练习题"></a>练习题</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在这里写东西</span><br></pre></td></tr></table></figure>
+</code></pre><h2 id="面向对象的概念（封装，多态，继承）"><a href="#面向对象的概念（封装，多态，继承）" class="headerlink" title="面向对象的概念（封装，多态，继承）"></a>面向对象的概念（封装，多态，继承）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1、类：指具有相同属性或行为的一组事物。</span><br><span class="line">   对象：是指类的具体化。</span><br><span class="line">类与对象的关系</span><br><span class="line">类是一组对象的抽象表示，而对象是类的具体化表现。</span><br></pre></td></tr></table></figure>
+<h3 id="2、类的语法结构"><a href="#2、类的语法结构" class="headerlink" title="2、类的语法结构"></a>2、类的语法结构</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class 类名：</span><br><span class="line">     变量声明语句</span><br><span class="line">     执行语句</span><br><span class="line">     def func(self):</span><br><span class="line">         执行语句</span><br><span class="line">其中，类名首字母要求大写（约定俗成），遵守Python命名规则，不能以数字开头，通常我们都是字母开头。</span><br><span class="line">注意：</span><br><span class="line">1）如果类中声明了函数，其函数的参数，必须有一个默认的参数为self，self代表了该类的实例化对象。</span><br><span class="line">2）如果在类中声明了变量，且该变量位于函数体之外，这个变量我们成为类变量，类变量是公共的。类变量的调用可以直接使用类名进行调用，比如：</span><br><span class="line">class Dog:  <span class="comment"># 定义一个类，类名Animal</span></span><br><span class="line">    color = <span class="string">'灰色'</span></span><br><span class="line">    leg_num = 4</span><br><span class="line">    weight = 20</span><br><span class="line">    width = 150</span><br><span class="line"></span><br><span class="line">    def wangwang(self):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'wangwangwangwang'</span>)</span><br><span class="line"></span><br><span class="line">    def eat(self):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'一顿饭20块钱'</span>)</span><br><span class="line"></span><br><span class="line">    def run(self):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'非常快'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">husky = Dog()  <span class="comment"># 将类实例化成对象，对象为dog</span></span><br><span class="line">husky.run()</span><br><span class="line">Dog.color</span><br><span class="line"></span><br><span class="line">类变量，作为公共的变量，不管类实例化多少个对象，都只实例一份类变量。而且类变量会在对象实例化之前载入内容，一旦改变了类变量中的内容，所有对象中调用这个类变量的值都会随之改变。</span><br><span class="line"></span><br><span class="line">3)在类实例化对象时，会将其定义的属性和行为，生成一份副本给具体的实例化对象。对象与对象之间，他们的属性和行为是不相互干扰的。</span><br><span class="line"></span><br><span class="line">class Dog:  <span class="comment"># 定义一个类，类名Animal</span></span><br><span class="line">    color = <span class="string">'灰色'</span></span><br><span class="line"></span><br><span class="line">    def __init__(self, num):</span><br><span class="line">        self.num = num</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    def getNum(self):</span><br><span class="line">        <span class="built_in">print</span>(self.num)</span><br><span class="line">husky = Dog(5)  <span class="comment"># 将类实例化成对象，对象为dog</span></span><br><span class="line">samoye = Dog(3)</span><br><span class="line">husky.getNum()</span><br><span class="line">samoye.getNum()</span><br><span class="line"></span><br><span class="line">我们在实例化Dog类时，生成两个对象husky、samoye，这两对象在实例化的过程中会生成两套成员变量和函数，他们的相互不干扰的。我们可以观察上面的代码，发现num变量属于成员变量，即husky和samoye各有持有相同的成员变量，但是修改num的值，husky为5，而samoye为3。结果表明他们的成员变量只能归各自的对象所拥有，并进行改变。对象与对象之间不会相互影响。</span><br><span class="line">4）使用构造函数，来初始化成员变量</span><br><span class="line">class Person:</span><br><span class="line">    def __init__(self):  <span class="comment"># 构造函数，在实例化对象时被默认调用，用来给对象的成员变量赋值</span></span><br><span class="line">        self.name = <span class="string">'tom'</span></span><br><span class="line">        self.age = 21</span><br><span class="line">        self.tel = <span class="string">'1350000000'</span></span><br><span class="line">        self.address = <span class="string">'北京'</span></span><br><span class="line">        self.sex = <span class="string">'男'</span></span><br><span class="line">    </span><br><span class="line">    def setName(self, name):</span><br><span class="line">        self.name = name</span><br><span class="line">    </span><br><span class="line">    def getName(self):</span><br><span class="line">        <span class="built_in">return</span> self.name</span><br><span class="line">p1 = Person()</span><br><span class="line">p1.name</span><br><span class="line">使用__init__()函数，用来初始化成员变量。对象在实例化时，会默认的调用__init__()函数，同时将成员变量进行初始化。同时，在构造函数中，使用self.变量名进行初始化的成员变量，都是公有的。即在类外可以通过实例化的对象调用。</span><br></pre></td></tr></table></figure>
+<h3 id="类变量与成员变量的区别"><a href="#类变量与成员变量的区别" class="headerlink" title="类变量与成员变量的区别"></a>类变量与成员变量的区别</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1、类变量是声明在类中，位于函数之外声明的变量。这些变量时公共的，即在类外使用类名.类变量的方式进行调用。我们一旦修改类变量的值，所有调用类变量的内容均发生改变。</span><br><span class="line">2、成员变量，是声明在类中的构造函数中，通过self.变量来进行声明赋值的。这些成员变量是公有的，即在类外可以通过对象名.成员变量的方式进行调用。所有的对象都有自己的成员变量，也就意味着每个对象的成员变量都是独立的，不会相互干扰。</span><br><span class="line">3、类变量是该类所有实例化对象所公有的，它会早于对象实例化之前被载入内容中。</span><br><span class="line">成员变量都是跟随对象实例化的过程中，被声明出来的。它是伴随着对象的产生而产生，消亡而消亡的。</span><br><span class="line">4、成员变量和方法，默认情况下都是公有的。也就是说在类外可以直接使用对象进行调用。我们可以通过为成员变量设置双下划线，将其标识为私有的成员变量，例如：self.__name = <span class="string">'tom'</span>。私有的成员变量只能在类内进行直接使用，类外必须通过相关方法进行间接调用。</span><br></pre></td></tr></table></figure>
+<h3 id="Python中对象创建的流程"><a href="#Python中对象创建的流程" class="headerlink" title="Python中对象创建的流程"></a>Python中对象创建的流程</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1、Python创建一个对象，首先要调用__new__方法，用来创建并返回一个对象。通常，Python中不需要我们直接显示调用，它会默认调用object.__new__()方法</span><br><span class="line">2、然后，调用__init__方法，对该对象进行初始化。</span><br><span class="line"></span><br><span class="line">析构函数：</span><br><span class="line">1、析构函数与构造函数一样，都是Python中特殊的函数。</span><br><span class="line">2、析构函数如果用户没有定义的话，Python会提供一个默认的析构函数</span><br><span class="line">3、析构函数__del__(self)，作用用来释放掉对象所占用的内存空间，在Python回收对象空间之前自动被执行。</span><br><span class="line">4、通常在析构函数中，主要是将对象中占用大量资源的变量进行手动的释放，便于后续Python解释器去回收这些内存空间。</span><br></pre></td></tr></table></figure>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1）Python中能够实现单继承与多继承。</span><br><span class="line">单继承：就是子类只有一个直接父类。</span><br><span class="line">多继承：子类有两个及两个以上的直接父类。</span><br><span class="line">2）子类继承父类，子类可以继承父类的相关特征。子类继承了父类的方法，如果在多继承情况下，父类出现同名函数，那么子类继承该函数时，根据继承的顺序进行调用。</span><br><span class="line">3）super()函数，它指代了当前类的父类。我们可以在子类中调用super函数，用来初始化父类。但是使用super()调用父类的构造函数时，只能对多继承中的第一个父类生效。</span><br><span class="line">4)抽象与继承的区别与关系</span><br><span class="line">抽象：指对同一类别事物的相似部分进行抽取。抽象我们认为是对具体化对象的相关行为和属性的泛化过程。</span><br><span class="line">继承：Python中我们通常认为类就是一个抽象的内容。类本身并不能直接执行，需要通过继承，进行对象的实例化，进而获得具体的对象本身，才能执行相关的功能。</span><br><span class="line">也就是说继承其实是抽象的具体化过程。</span><br><span class="line"></span><br><span class="line">5）多继承中，当一个子类继承多个父类时，我们需要如下声明：</span><br><span class="line">class SubClass(A,B):</span><br><span class="line">其中，A、B是SubClass的父类。那么，如果我们分为两种个情况：</span><br><span class="line">第一，子类中没有显式的定义__init__()，那么在实例化子类时调用其父类的构造函数。如果有多个类，都定义了__init()函数，那么它会调用第一个具有__init__()函数的父类。</span><br><span class="line">第二，子类中显式的定义理论__init_(),那么实例化子类时不再调用父类的构造函数。此时，如果我们要调用父类的构造函数，有两种方法。</span><br><span class="line">1）在子类的构造函数中，显式的调用对应父类的构造函数，例如：</span><br><span class="line">A.__init__()</span><br><span class="line">2)采用super()函数，super().__init__()或者super(子类，self).__init__()</span><br><span class="line">但是如果遇到其多个父类，他们的构造函数同名时，我们根据他们在MRO中的顺序，分别调用他们，例如：</span><br><span class="line">class SubClass(B, A):</span><br><span class="line">    def __init__(self):</span><br><span class="line">        super().__init__()   <span class="comment"># 此处调用了父类B</span></span><br><span class="line">        super(B, self).__init__() <span class="comment">#此处调用了父类C</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'我是子类'</span>)</span><br><span class="line">注意，在这里不要看到super就认为是父类，但是在多继承时，实际上super指的是MRO中的下一个类。</span><br></pre></td></tr></table></figure>
+<h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在Python中，我们针对其内部细节进行封装。通常我们将属性定义为私有类型，意味着在类外无法直接访问。可以通过相关的方法对其进行调用。</span><br><span class="line">私有的成员变量和方法，都需要在类内进行定义。所有在类外实现的定义都是公有的，代码如下：</span><br><span class="line">class A:</span><br><span class="line">    __N = <span class="string">'hello'</span>      <span class="comment"># 此处是一个私有的类变量</span></span><br><span class="line"></span><br><span class="line">    def __init__(self):</span><br><span class="line">        self.__name = <span class="string">'tom'</span></span><br><span class="line"></span><br><span class="line">    def __method(self):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'我是私有函数'</span>)</span><br><span class="line"></span><br><span class="line">    def show(self):</span><br><span class="line">        self.__method()</span><br><span class="line">        <span class="built_in">print</span>(self.__name)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a = A()</span><br><span class="line">A.__age = 10       <span class="comment"># 此处的__age是一个公有的类变量</span></span><br><span class="line"><span class="built_in">print</span>(A.__age)</span><br></pre></td></tr></table></figure>
+<h3 id="property方法"><a href="#property方法" class="headerlink" title="property方法"></a>property方法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在Python中，我们可以使用property来修饰指定的函数，被修饰后的函数，在类外可以通过对象调用（类似调用变量）</span><br><span class="line"></span><br><span class="line">class Person:</span><br><span class="line">    def __init__(self, name, height, weight):</span><br><span class="line">        self.__name = name</span><br><span class="line">        self.__height = height</span><br><span class="line">        self.__weight = weight</span><br><span class="line">    </span><br><span class="line">    @property</span><br><span class="line">    def bmi(self):</span><br><span class="line">        <span class="built_in">return</span> self.__weight / self.__height**2</span><br><span class="line"></span><br><span class="line">p = Person()</span><br><span class="line"><span class="built_in">print</span>(p.bmi)  <span class="comment"># 此处调用的bmi是Person类中的函数。</span></span><br><span class="line">原理：当类被载入时，首先会载入类的名称和被property修饰的名字到类的命名空间中；然后在类对象进行实例化时，Python解析器会查找是否存在property修饰的名字，如果存在，就不在实例化对象是为其分配内存空间。</span><br></pre></td></tr></table></figure>
+<h3 id="classmethod方法"><a href="#classmethod方法" class="headerlink" title="classmethod方法"></a>classmethod方法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在Python中，我们通常使用classmethod用来修饰一个方法，这个方法就被称为类方法，类方法通常用来操作类变量。类方法和类变量一样，都需要通过类名来调用。</span><br><span class="line">class Goods:</span><br><span class="line">    __discount = 0.8</span><br><span class="line"></span><br><span class="line">    def __init__(self, name, price):</span><br><span class="line">        self.__name = name</span><br><span class="line">        self.__price = price</span><br><span class="line"></span><br><span class="line">    @classmethod</span><br><span class="line">    def change_discount(cls, new_discount): <span class="comment">#此处传递的默认参数不是对象参数self，而是类参数cls</span></span><br><span class="line">        cls.__discount = new_discount</span><br><span class="line">    </span><br><span class="line">    @classmethod</span><br><span class="line">    def get_discount(cls):</span><br><span class="line">        <span class="built_in">return</span> cls.__discount</span><br><span class="line"></span><br><span class="line">goods = Goods(<span class="string">'apple'</span>, 6)</span><br><span class="line"><span class="built_in">print</span>(Goods.get_discount())</span><br><span class="line">Goods.change_discount(0.9)</span><br><span class="line"><span class="built_in">print</span>(Goods.get_discount())</span><br><span class="line">10)staticmethod方法</span><br><span class="line">在Python中，我们使用staticmethod来修饰函数，该函数被称为静态方法，首先，静态方法不需要使用对象参数或类参数作为默认参数。其次，静态方法通常只能调用类变量，而不可以使用成员变量。最后，在类外进行调用时，可以使用类名来调用。</span><br></pre></td></tr></table></figure>
+<h2 id="实例方法、类方法与静态方法的区别"><a href="#实例方法、类方法与静态方法的区别" class="headerlink" title="实例方法、类方法与静态方法的区别"></a>实例方法、类方法与静态方法的区别</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">实例方法：第一个参数必须是实例对象（self）,通过它来传递实例的属性和方法，只能由实例对象来调用。</span><br><span class="line">类方法：使用装饰器@classmethod，第一个参数必须是类对象（cls）,通过它来传递类的属性和方法。可以通过实例对象或类对象来调用，通常使用类对象调用。</span><br><span class="line">静态方法：使用装饰器@staticmethod,没有默认参数（self和cls），但是方法体中不能使用类或实例对象的任何属性和方法。可以通过实例对象或类对象进行调用。</span><br><span class="line"></span><br><span class="line">1、类方法和静态方法都可以通过对象实例或者类名来调用。</span><br><span class="line">2、类方法主要针对的是类，可以通过继承和重新定义</span><br><span class="line">3、静态方法不能被继承，无法被重写，可以被认为是全局函数。静态方法在使用时完全不会用到对象实例本身。静态方法逻辑上属于类，但是不会涉及到类中的属性和方法的操作。</span><br></pre></td></tr></table></figure>
+<h1 id="练习题"><a href="#练习题" class="headerlink" title="练习题"></a>练习题</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">11）方法重写</span><br><span class="line">概念：当子类继承父类时，子类会继承父类所有的公有方法。如果在子类中重写定义一个与父类中同名的方法，我们成为方法的重写（覆盖）。方法重写只需要名字相同即可，与方法的参数个数、顺序无关</span><br><span class="line">12）多态与鸭子类型</span><br><span class="line">多态：多态一般都是通过继承来实现的，也就是根据不同的对象形态来进行区分。我们在Python中，使用多态时，意味着在编码时变量并不知道所引用的对象具体内容，只有在程序运行时相关对象被实例化后，才能够确定。</span><br><span class="line">鸭子类型：在Python中，因为其自身特性并没有对多态进行明确的规定，可以创建一个功能相似，但与原对象无关的、全新对象，来实现程序的松耦合。</span><br><span class="line">我们通常在开发中，采用接口的方式来实现。</span><br><span class="line">我们认为在一组功能相似，但没有继承关系的对象中，采用接口方式。</span><br><span class="line">class Payment:</span><br><span class="line">    def payment(self, money):</span><br><span class="line">        pass</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Weixinpay(Payment):</span><br><span class="line">    def payment(self, money):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'微信支付了&#123;0&#125;元'</span>.format(money))</span><br><span class="line"></span><br><span class="line">class Alipay(Payment):</span><br><span class="line">    def payment(self, money):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'支付宝支付了&#123;0&#125;元'</span>.format(money))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class My(Payment):</span><br><span class="line">    def payment(self, money):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'支付了&#123;0&#125;元'</span>.format(money))</span><br><span class="line"></span><br><span class="line">此例，我们可以看到：</span><br><span class="line">第一，通过继承，实现了多态，即三种支付方式不同的形态</span><br><span class="line">第二，我们观察到，微信支付、支付宝、个人支付，三者之间没有任何继承关系，但是都具有相同的支付功能，我们可以认为这种形式就是鸭子类型</span><br><span class="line">第三，因为三种支付方式，分别继承了接口类Payment，都重新了相关的支付方法payment()</span><br><span class="line"></span><br><span class="line">运算符重载</span><br><span class="line">1、__getitem__：索引迭代</span><br><span class="line">在Python，可迭代化对象在使用循环迭代时，都会默认的调用__iter__,如果没有next()方法，会调用__getitem__方法。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">案例：</span><br></pre></td></tr></table></figure>
 
       
 
@@ -199,7 +202,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/01/python_senior/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/08/10/python_class-14/">展开全文 >></a>
         </p>
       
 
@@ -229,19 +232,229 @@
 
 
   
-    <article id="post-python_def" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-python_module-12" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/01/python_def/">Python——爬虫</a>
+      <a class="article-title" href="/2018/08/10/python_module-12/">Python——爬虫</a>
     </h1>
   
 
         
-        <a href="/2018/08/01/python_def/" class="archive-article-date">
+        <a href="/2018/08/10/python_module-12/" class="archive-article-date">
+  	<time datetime="2018-08-10T13:36:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>好好学习，天天向上！
+</code></pre><h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">基本概念：在Python中进行Python定义和声明的文件，以.py结尾。使用import或from   import导入的文件，我们成为模块。</span><br></pre></td></tr></table></figure>
+<h3 id="2）模块的优势"><a href="#2）模块的优势" class="headerlink" title="2）模块的优势"></a>2）模块的优势</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">首先，使用模块，可以将常用的功能和变量，统一分类存储在不同的文件中，在使用时进行导入。提供了代码的可维护性。</span><br><span class="line">其次，使用模块因为将常用功能进行了统一调用，提供了代码的复用性</span><br><span class="line">最后，解决了在同一个文件中，方法和变量重名的问题。</span><br></pre></td></tr></table></figure>
+<h3 id="3）导入时的问题"><a href="#3）导入时的问题" class="headerlink" title="3）导入时的问题"></a>3）导入时的问题</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">如果导入了与文件同名的函数（方法名相同，函数个数相同）时，需要使用模块名调用函数，与文件中的函数进行区分，例如：</span><br><span class="line">import my</span><br><span class="line">my.show()</span><br><span class="line">def show():</span><br><span class="line">  pass</span><br><span class="line">show()</span><br></pre></td></tr></table></figure>
+<h3 id="模块-1"><a href="#模块-1" class="headerlink" title="模块"></a>模块</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">模块可以在Python文件中，实现多次import导入，但是只有第一次导入时才真正将模块中的内容运行、方法载入，其他再进行导入时，Python解析器会先检测是否已经载入该模块，如果载入就不在执行相关操作。</span><br><span class="line">总结：</span><br><span class="line">模块载入一共分三个步骤：</span><br><span class="line">1、为模块的导入，创建命名空间（划分新的内存地址），被载入的文件按照全局作用域来使用。</span><br><span class="line">2、模块载入后，将在上一步操作中创建的命名空间中，执行模块中的代码</span><br><span class="line">3、创建一个模块的名字，来引用模块所在的命名空间。my.show()</span><br><span class="line"><span class="comment"># from  文件名 import 文件名中类的函数</span></span><br></pre></td></tr></table></figure>
+<h3 id="13、常用模块"><a href="#13、常用模块" class="headerlink" title="13、常用模块"></a>13、常用模块</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1）序列化模块：json、pickle、shelve</span><br><span class="line">json模块：</span><br><span class="line">序列化方法：dump()、dumps()</span><br><span class="line">反序列化方法：load()、loads()</span><br><span class="line">pickle模块：</span><br><span class="line">序列化方法：dump()、dumps()</span><br><span class="line">反序列化方法：load()、loads()</span><br></pre></td></tr></table></figure>
+<h2 id="时间模块"><a href="#时间模块" class="headerlink" title="时间模块"></a>时间模块</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line">def number(s): </span><br><span class="line">    s=(time.strftime(<span class="string">'%Y-%m-%d %H:%M:%S'</span>)) <span class="comment">#获取当前是时间</span></span><br><span class="line">    p=time.strptime(s,<span class="string">'%Y-%m-%d %H:%M:%S'</span>)<span class="comment">#再把当前时间转成时间数组</span></span><br><span class="line">    a=(time.mktime(p)) <span class="comment">#再把时间数组 转为 时间戳</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'过去了&#123;0&#125;年，&#123;1&#125;月，&#123;2&#125;天，&#123;3&#125;小时，&#123;4&#125;分钟，&#123;5&#125;秒'</span>.format(int(a/60/60/24/30/12),int(a/60/60/24/30),int(a/60/60/24),int(a/60/60),int(a/60),int(a)))</span><br><span class="line">s=(time.strftime(<span class="string">'%Y-%m-%d %H:%M:%S'</span>))</span><br><span class="line">number(s)</span><br><span class="line"></span><br><span class="line"><span class="comment">#利用strptime()函数将时间转换成时间数组</span></span><br><span class="line"><span class="comment">#利用mktime()函数将时间数组转换成时间戳</span></span><br><span class="line">a = time.localtime(1300000002)</span><br><span class="line"><span class="built_in">print</span>(time.strftime(<span class="string">"%Y-%m-%d %H:%M:%S"</span>,a)) <span class="comment">#通过时间戳转为格式化时间</span></span><br></pre></td></tr></table></figure>
+<h2 id="随机数的模块"><a href="#随机数的模块" class="headerlink" title="随机数的模块"></a>随机数的模块</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">引入random模块</span><br><span class="line">import random</span><br><span class="line"><span class="built_in">print</span>(random.random())<span class="comment">#产生大于零小于一的</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(random.uniform(1,3)) <span class="comment">#产生1-3的浮点数</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(random.randrange(1,10,2)) <span class="comment">#产生1-10的奇数</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(random.randint(1,10)) <span class="comment">#产生整数</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(random,choice([1,2,3,4,5,6,7,8]))  <span class="comment">#随机抽一个数</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(random.sample([1,2[3,4]],6))</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/10/python_module-12/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-python_Error-9" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/10/python_Error-9/">Python——爬虫</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/10/python_Error-9/" class="archive-article-date">
+  	<time datetime="2018-08-10T13:36:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>好好学习，天天向上！
+</code></pre><h2 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">概念：指因程序出错在正常的执行流程之外，采取的行为。异常是一个事件，会在程序的执行过程中执行，并影响程序的执行。</span><br></pre></td></tr></table></figure>
+<h3 id="2）异常的阶段"><a href="#2）异常的阶段" class="headerlink" title="2）异常的阶段"></a>2）异常的阶段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">第一、产生异常（比如：代码错误、业务逻辑错误）</span><br><span class="line">第二、处理异常（比如：将异常提示更加可理解、增强代码的健壮性）</span><br></pre></td></tr></table></figure>
+<h3 id="3）常见的异常类"><a href="#3）常见的异常类" class="headerlink" title="3）常见的异常类"></a>3）常见的异常类</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Exception：Python中所有异常的父类。</span><br><span class="line">NameError：访问了一个未声明的变量。</span><br><span class="line">keyError:访问一个不存在的字典key</span><br><span class="line">IndexError：索引超出序列的范围</span><br><span class="line">ValueError：传给函数的参数类型不正确。</span><br><span class="line">IOError：文件操作时输入输出错误</span><br></pre></td></tr></table></figure>
+<h3 id="4）异常处理流程"><a href="#4）异常处理流程" class="headerlink" title="4）异常处理流程"></a>4）异常处理流程</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">基本语法：</span><br><span class="line">try：</span><br><span class="line">   可能会产生异常的代码</span><br><span class="line">except  对应的异常 as 别名：</span><br><span class="line">   异常处理语句</span><br><span class="line"></span><br><span class="line">说明：在try中，放置可能会产生错误的相关代码；except后标明对应的异常类型，一旦try中产生相关异常，except后声明的异常类能够对应捕获，执行相关异常处理语句。如果try外面后续还要其他语句，会继续执行。在产生异常是，出现异常的语句后，如果还有其他语句则不会执行。</span><br><span class="line">try:</span><br><span class="line">   可能会产生异常的代码</span><br><span class="line">except 对应的异常 as 别名：</span><br><span class="line">   异常处理语句</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">   程序代码</span><br><span class="line">说明：在此结构中，如果try中的代码出现异常，则使用except后面声明的异常类进行捕获处理，如果没有异常出现，则执行<span class="keyword">else</span>内部的代码。</span><br><span class="line"></span><br><span class="line">try:</span><br><span class="line">   可能会产生异常的代码</span><br><span class="line">except 对应的异常 as 别名：</span><br><span class="line">    异常处理语句</span><br><span class="line">except 对应的异常 as 别名：</span><br><span class="line">    异常处理语句</span><br><span class="line">说明：当try中有多行代码可能会出现不同的异常，那么使用多个except与之对应，根据产生异常的顺序来依次捕获处理。</span><br><span class="line"></span><br><span class="line">try：</span><br><span class="line">   可能会出产生异常的代码</span><br><span class="line">except 对应的异常 as 别名：</span><br><span class="line">   异常处理语句</span><br><span class="line">finally：</span><br><span class="line">   代码</span><br><span class="line">说明：当异常捕获处理流程中，使用了finally来控制，表明不管是否出现异常进行捕获，最后代码都将允许finally内部的语句。</span><br><span class="line">注意：finally中的语句，不管前面的代码出现何种操作，比如：<span class="built_in">break</span>、<span class="built_in">return</span>、<span class="built_in">exit</span>等都会执行完finally内部的代码后，才会实现。</span><br></pre></td></tr></table></figure>
+<h3 id="5）异常的分类"><a href="#5）异常的分类" class="headerlink" title="5）异常的分类"></a>5）异常的分类</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在Python中所有的异常都继承自BaseExcept,如下：</span><br><span class="line">          |------&gt;KeyboardInterrupt（键盘中断异常） </span><br><span class="line">          |</span><br><span class="line">BaseExcept|------&gt;SystemExit(系统退出异常)</span><br><span class="line">          |</span><br><span class="line">          |------&gt;Except（其他所有异常的父类）    </span><br><span class="line">其中：keyboardInterrupt在使用强制中断程序时产生。</span><br><span class="line">SystemExit在使用sys.exit()函数时产生。</span><br></pre></td></tr></table></figure>
+<h3 id="6）主动抛出异常"><a href="#6）主动抛出异常" class="headerlink" title="6）主动抛出异常"></a>6）主动抛出异常</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">raise 异常类对象实例或自定义异常类实例</span><br><span class="line">raise IOError(<span class="string">'IO 错误'</span>)</span><br><span class="line"></span><br><span class="line">finally的替换写法</span><br><span class="line">with open(<span class="string">'myfile.txt'</span>,<span class="string">'r'</span>) as f:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">        <span class="built_in">print</span>(line)</span><br><span class="line">其中打开的文件对象f，在执行完内容的读取后，被强制性关闭。及时在读取过程中，出现错误，也会被关闭。</span><br><span class="line"></span><br><span class="line">8）使用异常机制的优势</span><br><span class="line">第一，把错误控制与业务逻辑进行区分，增强程序的可读性和健壮性。</span><br><span class="line">第二，代码结构更加清晰，复杂的业务流程的实现更加便利</span><br><span class="line">第三，程序的容错性更强，不会因为一个小bug导致整体崩溃。</span><br><span class="line"></span><br><span class="line">9）assert 断言</span><br><span class="line">语法格式：assert 表达式，断言内容。代码如下</span><br><span class="line">try:</span><br><span class="line">    assert 1==2,<span class="string">'1 不等于 2'</span></span><br><span class="line">except AssertionError as ae:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'&#123;&#125;&#123;&#125;'</span>.format(ae.__class__.__name__, ae))</span><br><span class="line">如果断言表达式为真，则正常执行，如果不为真，则返回断言内容，作为异常捕获的输出结果。</span><br></pre></td></tr></table></figure>
+<h1 id="练习题"><a href="#练习题" class="headerlink" title="练习题"></a>练习题</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在这里写东西</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/10/python_Error-9/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-python_senior-13" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/01/python_senior-13/">Python——爬虫</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/01/python_senior-13/" class="archive-article-date">
+  	<time datetime="2018-08-01T13:32:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>好好学习，天天向上！
+</code></pre><h2 id="高级特性"><a href="#高级特性" class="headerlink" title="高级特性"></a>高级特性</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ 在这里写东西</span><br></pre></td></tr></table></figure>
+<h3 id="含range-操作的格式："><a href="#含range-操作的格式：" class="headerlink" title="含range()操作的格式："></a>含range()操作的格式：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">range()函数自身并不会自动产生整数序列，它需要使用其他方式来调用它才会产生。</span><br></pre></td></tr></table></figure>
+<h3 id="列表推导式生成式"><a href="#列表推导式生成式" class="headerlink" title="列表推导式生成式"></a>列表推导式生成式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">格式：[表达式或函数  <span class="keyword">for</span> x <span class="keyword">in</span> 序列]</span><br><span class="line">含义：通过生成式中的循环，逐一产生x值，表达式使用X值进行相关运算。最终结果作为列表的元素。也就意味着，循环多少次，就会产生多少个相关元素。</span><br></pre></td></tr></table></figure>
+<h3 id="迭代器-Iterator"><a href="#迭代器-Iterator" class="headerlink" title="迭代器(Iterator)"></a>迭代器(Iterator)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">1）概念：迭代器访问元素，是从第一个元素开始，依次访问后续元素直到结束。其中迭代器只能向前不能回退。其包含两个方法iter()和next()。</span><br><span class="line">iter()用来创建一个迭代器，next()用来访问下一个元素。</span><br><span class="line">目前我们所学的字符串、列表、元组都可以创建迭代器，那么他们也是可迭代化的对象。</span><br><span class="line">迭代器两个步骤：</span><br><span class="line">1、当调用next()函数，会将迭代器当前位置状态进行改变</span><br><span class="line">2、会将下一个元素进行返回</span><br><span class="line"></span><br><span class="line">迭代器的延迟作用：迭代器生成的元素并不是在迭代器声明时，就准备好了的。通常时在调用迭代器需要提供该元素时生成的，也就是说只有在我们需要的时候迭代器才产生相关元素，不需要时并不会主动的生成相关元素。我们可以把迭代器看成一个容器，到我们需要时使用next()方法返回容器中的下一个值。</span><br><span class="line">迭代器实现了工厂模式的对象，它在你每次访问下一个值的时候给你返回。</span><br><span class="line"></span><br><span class="line">可迭代化（iterable）：表明相关的对象可以创建迭代器对象，同时他们自身都是可以进行<span class="keyword">for</span>数据遍历的。我们可以使用isinstance()来判断对象是否为可迭代化</span><br><span class="line"></span><br><span class="line">from collections import Iterable</span><br><span class="line">string = <span class="string">'hello'</span></span><br><span class="line"><span class="built_in">print</span>(isinstance(string, Iterable))  =&gt; True</span><br><span class="line">函数格式：isinstance(对象，类型)</span><br><span class="line">返回值：布尔值</span><br><span class="line">结果：如果指定的对象属于指定的类型，那么返回True，反之返回False</span><br><span class="line"></span><br><span class="line">enumerate()函数</span><br><span class="line">函数格式：enumerate(iterable)</span><br><span class="line">返回值：生成一个枚举对象</span><br><span class="line">例如：</span><br><span class="line">enum = enumberate([<span class="string">'one'</span>,<span class="string">'two'</span>,<span class="string">'three'</span>])</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> enum:</span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line">    </span><br><span class="line">(0, <span class="string">'one'</span>)</span><br><span class="line">(1, <span class="string">'two'</span>)</span><br><span class="line">(2, <span class="string">'three'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i,value <span class="keyword">in</span> enum:</span><br><span class="line">    <span class="built_in">print</span>(i, value)</span><br><span class="line">   </span><br><span class="line">0 one</span><br><span class="line">1 two</span><br><span class="line">2 three</span><br></pre></td></tr></table></figure>
+<h3 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1、创建方式</span><br><span class="line">第一种，使用列表推导式，将[]改为()，生成一个generator对象</span><br><span class="line">第二种，使用函数方式，采用yield关键字来实现</span><br><span class="line">2、使用</span><br><span class="line">生成器我们通常可以认为一种特殊的迭代器，但是它不需要像迭代器一样去实现__iter__,__next__方法。只需要使用yield关键字，该关键字可以在每次调用生成器函数时起到暂停作用，并将其值进行返回。同时还会记录当前运行值的状态。</span><br><span class="line"></span><br><span class="line">总结：迭代器和生成器</span><br><span class="line">1、容器是一系列的元素集合，str、list、<span class="built_in">set</span>、dict对象都可以看作是容器，容器都可以进行迭代（即用在<span class="keyword">while</span>或<span class="keyword">for</span>循环），凡是这样的容器我们都称为可迭代化对象（Iterable）。</span><br><span class="line">2、可迭代化对象都实现了__iter__方法，该方法返回一个迭代器对象。</span><br><span class="line">3、迭代器都拥有一个状态字段，用于记录下次迭代返回值。它实现了__next__和__iter__方法，迭代器不会一次性把所有的元素都加载到内存中，而是在需要的时候才生成返回结果。</span><br><span class="line">4、生成器是一种特殊的迭代器，它的返回值不是通过<span class="built_in">return</span>来返回的，而是通过yield来返回的。</span><br></pre></td></tr></table></figure>
+<h3 id="补充：拷贝的概念"><a href="#补充：拷贝的概念" class="headerlink" title="补充：拷贝的概念"></a>补充：拷贝的概念</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">copy()(浅拷贝)和deepcopy()（深拷贝）</span><br><span class="line">1、浅拷贝：我们使用copy()函数将列表中的元素，进行复制，通常对于普通的列表（一维）能够实现完全的值传递，即将自身的副本赋值给另外一个列表。例如：</span><br><span class="line">ls1 = [1,2,3,4,5]</span><br><span class="line">ls2 = ls1.copy()  <span class="comment"># 将ls1中的元素赋值给ls2,此时他们的值相等的</span></span><br><span class="line">ls1[3] = 6        <span class="comment">#此时，对ls1中索引位3的值进行修改，变为6</span></span><br><span class="line">观察其结果，我们可以发现ls1 =&gt; [1,2,3,6,5],但是ls2 =&gt;[1,2,3,4,5]没有发生改变</span><br><span class="line">一旦，ls1的列表元素结构发生变化，出现子列表嵌套。</span><br><span class="line">如：ls1 = [1,2,3,[<span class="string">'one'</span>,<span class="string">'two'</span>],5]，这是再使用copy()对ls2赋值，我们进行如下修改：</span><br><span class="line">ls1 = [1,2,3,[<span class="string">'one'</span>,<span class="string">'two'</span>],5]</span><br><span class="line">ls2 = ls1.copy()</span><br><span class="line">ls1[3][0] = <span class="string">'three'</span></span><br><span class="line">我们观察其结果，可以发现ls1 =&gt; [1,2,3,[<span class="string">'three'</span>,<span class="string">'two'</span>],5],同时ls2也会随之变化 ls2 =&gt; [1,2,3,[<span class="string">'three'</span>,<span class="string">'two'</span>],5]。</span><br><span class="line">总结：这种现象我们成为浅拷贝，copy()函数进行组合数据类型拷贝时，只能控制第一层元素进行值传递，一旦出现嵌套的子列表、子字典等内容，将不再拷贝其内容的值，而是直接将这个嵌套的内存地址，赋值给ls2。所以会造成一旦原列表改变子列表内容后，目标列表中对应的子列表也发生改变。</span><br><span class="line">2、深拷贝：我们需要引入copy这个模块，调用deepcopy()函数。写法如下：</span><br><span class="line">import copy</span><br><span class="line"></span><br><span class="line">ls1 = [1,2,3,[<span class="string">'one'</span>,<span class="string">'two'</span>],5]</span><br><span class="line">ls2 = copy.deepcopy(ls1)</span><br><span class="line">ls1[3][0] = <span class="string">'three'</span></span><br><span class="line">此时，我们发现ls1内容发生改变后，但是ls2并没有随之改变，那么也就是意味着deepcopy()将ls1中内容，包括嵌套里面的元素都进行了副本赋值，给ls2。因此，他们只是值相同，并没有指向同一个内存地址。</span><br><span class="line"></span><br><span class="line">sort()与sorted()</span><br><span class="line">1、sort()函数提供排序功能，同时该排序是实现了永久性排序，即会改变原有列表的元素位置。</span><br><span class="line">2、sorted()函数提供排序功能，但是该排序进行了临时性排序，即只是产生一个有序结果，并不会真正改变原列表中元素的位置。</span><br></pre></td></tr></table></figure>
+<h1 id="练习题"><a href="#练习题" class="headerlink" title="练习题"></a>练习题</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在这里写东西</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/01/python_senior-13/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-python_def-11" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/01/python_def-11/">Python——爬虫</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/01/python_def-11/" class="archive-article-date">
   	<time datetime="2018-08-01T13:32:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-01</time>
 </a>
         
@@ -271,7 +484,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/01/python_def/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/08/01/python_def-11/">展开全文 >></a>
         </p>
       
 
@@ -301,19 +514,19 @@
 
 
   
-    <article id="post-python_io" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-python_io-10" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/01/python_io/">Python——爬虫</a>
+      <a class="article-title" href="/2018/08/01/python_io-10/">Python——爬虫</a>
     </h1>
   
 
         
-        <a href="/2018/08/01/python_io/" class="archive-article-date">
+        <a href="/2018/08/01/python_io-10/" class="archive-article-date">
   	<time datetime="2018-08-01T13:32:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-01</time>
 </a>
         
@@ -342,7 +555,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/01/python_io/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/08/01/python_io-10/">展开全文 >></a>
         </p>
       
 
@@ -372,19 +585,19 @@
 
 
   
-    <article id="post-python_Set" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-python_Set-8" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/19/python_Set/">Python——爬虫</a>
+      <a class="article-title" href="/2018/07/19/python_Set-8/">Python——爬虫</a>
     </h1>
   
 
         
-        <a href="/2018/07/19/python_Set/" class="archive-article-date">
+        <a href="/2018/07/19/python_Set-8/" class="archive-article-date">
   	<time datetime="2018-07-19T11:13:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-19</time>
 </a>
         
@@ -412,7 +625,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/19/python_Set/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/07/19/python_Set-8/">展开全文 >></a>
         </p>
       
 
@@ -624,374 +837,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/07/16/python_list-5/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-python_str-4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/16/python_str-4/">Python——爬虫</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/16/python_str-4/" class="archive-article-date">
-  	<time datetime="2018-07-16T09:18:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <pre><code>好好学习，天天向上！
-</code></pre><h2 id="四，字符串str"><a href="#四，字符串str" class="headerlink" title="四，字符串str()"></a>四，字符串str()</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">概念:字符串是字符的序列,C语言中用字符数组表示，如str[20] = “hello”。</span><br><span class="line">``` </span><br><span class="line"><span class="comment">### 1,其中有以下命名规则：</span></span><br><span class="line">``` bash</span><br><span class="line">1,名字必须以字母或者下划线开始，数字不能做为首字符，当名字包含多个单词时，可以使用下划线来链接.</span><br><span class="line">2,除了首字符，名称可以包含任何字母，数字，和下划线的组合，但是名字不能是关键字，不能出现分割符，标点或者运算符.</span><br><span class="line">3,名字长度不限，但是要注意名字区分大小写的.</span><br><span class="line">注意字符串的表示方式：单引号，双引号。<span class="string">'hello'</span>,<span class="string">"hello"</span></span><br><span class="line">``` </span><br><span class="line"><span class="comment">### 2,字符串比较运算符:</span></span><br><span class="line">``` bash</span><br><span class="line">== 等于</span><br><span class="line">&gt;  大于</span><br><span class="line">&lt;  小于</span><br><span class="line">&gt;=  大于等于</span><br><span class="line">&lt;=  小于等于</span><br><span class="line">!=  不等于</span><br><span class="line">字符串进行比较时，首先将两个字符串对应索引位的字符进行比较，如果相等，则进行下一个索引位的字符比较，如果不相等，则返回比较结果，结束本次比较。其次，如果两个字符串的内容都相等，但是第二个字符串的长度要大于第一个字符串，那么我们就认为第二个字符串大于第一个字符串，比如：<span class="string">'abc'</span>&lt;<span class="string">'abcd'</span>=》True。注意，字符串中的索引位是从0开始，其最后一个字符的索引位为字符串长度-1.</span><br><span class="line"></span><br><span class="line">另外是它们的返回值为布尔型，即True或False</span><br><span class="line">字符串进行比较时，采用对应位置的逐字母进行比较，首先将字母转成ASCII码，然后根据码值进行比较大小。如果一旦出现一方的字母码值大于另一方，就结束比较。</span><br><span class="line">提示：在键盘上，所有的字符的ASCII码值都小于a,b,c.....这些字母的码值</span><br><span class="line">只有这四个字符的ASCII码值大于字母z的码值：<span class="string">'&#123;'</span>、<span class="string">'|'</span>、<span class="string">'&#125;'</span>、<span class="string">'~'</span>，它们的码值从123-126</span><br></pre></td></tr></table></figure>
-<h3 id="3-字符串中的函数-find-index-upper-lower-title-split-strip-replace-input"><a href="#3-字符串中的函数-find-index-upper-lower-title-split-strip-replace-input" class="headerlink" title="3,字符串中的函数:find,index,upper,lower,title,split,strip,replace,input"></a>3,字符串中的函数:find,index,upper,lower,title,split,strip,replace,input</h3><pre><code class="bash">1),find()函数:用来查指定的字符或子字符串在原有字符串中的索引位。返回一个整型。
-<span class="comment">#举例</span>
-str1 = <span class="string">'hello'</span>
-str1.find(<span class="string">'ll'</span>) =&gt; 2
-str1.find(<span class="string">'l'</span>,1,4) 从下标1开始到4结束的范围内进行查找
-注意：如果查找的字符不在原字符串中，则返回-1.如果查找的字符为空字符，则返回0.
-index()函数：返回指定字符的索引位
-函数格式：index(子字符串[,开始索引位，结束索引位])
-返回值：如果找到指定的字符串，则返回其索引位；如果找不到就报错ValueError
-2)                 find()与index()函数的区别
-第一，两者在执行结果时类似的，如果找到指定的字符就会返回其索引位
-第二，find()如果找不到指定的字符时，返回-1；而index()找不到指定的字符，raise ValueError.
-第三，从效率上来讲，index的查询速度要优于find,因为在python中对于像字符串这样的有序数据类型，会产生一个索引对象来自动维护其序列，find()函数不管是否有这样的序列，都需要在字符串本身进行逐一查找，而index()会通过这个索引对象的映射方式，来快速找到对应的索引位。
-
-3),调用upper(),lower(),title(),函数来实现以下情况：
-<span class="comment">#举例：</span>
-mystring = <span class="string">"hello world"</span>
-n = mystring.upper() <span class="comment">#字符串全部转为大写</span>
-i = mystring.lower() <span class="comment">#字符串全部转为小写</span>
-x = mystring.title() <span class="comment">#字符串首字母大写</span>
-<span class="built_in">print</span>(x)
-
-4),split()：split(分割符))分割字符串函数，返回值为一个列表。其中，分隔符为字符串中原有的分割符。                 操作如下
-<span class="comment">#举例</span>
-string1 = <span class="string">'tv,pc,notebook,phone'</span>
-&gt;&gt;&gt; string1.split(<span class="string">','</span>)
-[<span class="string">'tv'</span>, <span class="string">'pc'</span>, <span class="string">'notebook'</span>, <span class="string">'phone'</span>]
-&gt;&gt;&gt; string1.split()
-[<span class="string">'tv,pc,notebook,phone'</span>]
-<span class="comment">#举例</span>
-s = <span class="string">"apple,peach,ban,pear"</span>
-li = s.split(<span class="string">","</span>)  调用split()函数来进行分割
-<span class="built_in">print</span>(li,end=<span class="string">" "</span>)
-注意：split中的分隔符，我们根据字符串中的实际情况而定。如果使用了不正确的分隔符，str.split(<span class="string">'错误分隔符'</span>)操作结果str.split(),会将整个字符串作为列表的一个元素。
-
-5)，strip() 字符串左右两端去除指定字符（默认情况，去除空格）
-函数格式：str.strip([指定字符])
-返回值：根据指定的字符，对字符串进行两端去除其内容，返回一个新的字符串。如果字符串中间有空格或指定字符，那么该函数不起作用。如果指定的字符在字符串左右两端不存在，那么将返回字符串本身。
-例如：
-<span class="comment">#举例缺省情况</span>
-string1 = <span class="string">'  hello world  '</span>
-&gt;&gt;&gt; string1.strip()
-<span class="string">'hello world'</span>
-&gt;&gt;&gt; <span class="built_in">print</span>(string1)
-  hello world   
-<span class="comment">#举例指定字符</span>
-string1 = <span class="string">'awelcom to zhengzhoua'</span>
-&gt;&gt;&gt; string1.strip(<span class="string">'a'</span>)
-<span class="string">'welcom to zhengzhou'</span>
-注意：
-1）字符串类型，一旦被声明赋值后，其内容是不可被改变的，如果需要改变原字符串变量的值，必须对其进行重新赋值。
-2）如果指定字符内容为一个字符序列，那么意味着使用strip去除左右两端指定字符时，只要符合字符序列中的某一位，就进行去除
-
-6),replace()替换函数
-函数格式：str.replace(old,new[,max])
-返回值：将指定字符串（old）替换为新字符串（new）,最大可以替换max次。替换完成后，返回一个新字符串。
-注意：此处的max参数，主要用来指定替换的次数，如果该参数缺省，表示替换里面所有符合条件的字符串。
-<span class="comment">#例如：</span>
-string1 = <span class="string">'honor,oppo,vivo,apple,oppo,oppo'</span>
-&gt;&gt;&gt; old_str = <span class="string">'oppo'</span>
-&gt;&gt;&gt; new_str = <span class="string">'xiaomi'</span>
-&gt;&gt;&gt; string1.replace(old_str, new_str)     <span class="comment"># 替换所有的oppo</span>
-<span class="string">'honor,xiaomi,vivo,apple,xiaomi,xiaomi'</span>
-&gt;&gt;&gt; string1.replace(old_str, new_str,2)   <span class="comment">#替换指定次数，即两处oppo</span>
-<span class="string">'honor,xiaomi,vivo,apple,xiaomi,oppo'</span>
-
-4),input():标准输入，使用键盘输入数字或字符串
-
-5),字符串也可以像列表一样进行操作，比如：字符串长度len(str1)
-
-6),字符串中的指定索引位，返回对应的字符，有一个单独的关系的对应表，str[index]其中index从左往右，从下标0开始，到len(str1)-1结束。
-
-7),从右往左，从下标-1开始，到-len(str)。
-
-8),“+”称为字符串的连接符，将左右两端的字符串连接成为一个新的字符串。”a”+”a” 得到是“aa”
-
-9),<span class="string">"*"</span>称为字符串的重复符，可以将指定的字符串重复N次,生成一个新的字符串。比如是”a“*1、2、3
-<span class="comment">#举例</span>
-you = <span class="string">"rice"</span>
-he = <span class="string">"corn"</span>
-n = you+he <span class="comment">#把两个字符串链接起来，生成一个新的字符串</span>
-n = you*3 <span class="comment">#是可以直接输出连个三个</span>
-<span class="built_in">print</span>(n)
-
-10),“<span class="keyword">in</span>”称为字符串的检测运算符，将指定的字符或子字符串在原有字符串中是否存在，如果存在返回True，如果不存在返回False。
-例如():
-string1 = <span class="string">'hello world'</span>
-substr = <span class="string">'e'</span>
-substr <span class="keyword">in</span> string1
-True
-
-substr = <span class="string">'ll'</span>
-substr <span class="keyword">in</span> string1
-True
-
-substr = <span class="string">'wr'</span>
-substr <span class="keyword">in</span> string1
-False
-
-11),字符串对象一旦创建，其内容就不能再修改。不能通过对其某一位置进行赋值而改变字符串，但是可以通过建立一个新的字符串并以同一个变量名对其进行赋值
-
-</code></pre>
-<h3 id="4-字符串分片：a-‘hello’"><a href="#4-字符串分片：a-‘hello’" class="headerlink" title="4,字符串分片：a = ‘hello’"></a>4,字符串分片：a = ‘hello’</h3><pre><code class="bash">第一种用法： a[(start):(end)]  该方法就获取到原字符串“hello”的下标从1-3之间（或者从1到最后一位）的字符序列，构成一个新的字符串。
-<span class="comment">#举例</span>
-string1 = hello world
-string1[0] =&gt; h    到string1[10] =&gt; d
-string1[-1] =&gt; d   到string1[-11] =&gt; h
-
-第二种用法： a[(start)::(第几个)] 该方法表示从下标位start开始，然后根据其位置获取向后的第几位对应的字符内容。a[1::3] =&gt; eo
-特殊用法： a[::-1]代表将该字符串进行反转输出，即hello =&gt; olleh
-
-第三种用法: 格式：str[start,end,step]
-start：代表切片开始的索引位
-end: 代表切片结束的索引位（但是不会输出该索引位指向的字符）
-step：代表每隔次几个字符个数截取一个
-<span class="comment">#举例</span>
-string1 = hello world
-string1[0:3] =&gt; hel   从索引位为0的字符开始，到索引位3结束，但不包括索引
-位3所指向的字符。
-string1[2:4] =&gt; ll
-string1[0:-1] =&gt; hello worl 
-string1[0:8:2] =&gt; hlow
-<span class="comment">#举例</span>
-str1[:]  =&gt; <span class="string">'hello world'</span> 等于将字符串进行复制
-str1[:5] =&gt; <span class="string">'hello'</span>       如果没有标明开始索引位，默认从0开始
-str1[::] =&gt; <span class="string">'hello world'</span>  等同于str1[:]
-</code></pre>
-<h3 id="5-利用find-和index-函数找出索引位数值"><a href="#5-利用find-和index-函数找出索引位数值" class="headerlink" title="5,利用find()和index()函数找出索引位数值"></a>5,利用find()和index()函数找出索引位数值</h3><pre><code class="bash">message = <span class="string">"hello python world"</span>
-i = message.find(<span class="string">"w"</span>)  利用find找出字符串下标位数
-i = message[3]   可以通过下标位数直接索引出字符串中的某个元素。
-i = message.index(<span class="string">"hello"</span>)
-<span class="built_in">print</span>(i)
-<span class="comment">#举例：</span>
-string1 = <span class="string">'apple,banana,apple,apple'</span>
-&gt;&gt;&gt; string1.find(<span class="string">'apple'</span>)
-0
-&gt;&gt;&gt; string1.find(<span class="string">'apple'</span>,5)
-13
-&gt;&gt;&gt; string1.find(<span class="string">'apple'</span>,7,20)
-13
-&gt;&gt;&gt; string1.find(<span class="string">'apple'</span>,14,20)
--1
-&gt;&gt;&gt; string1.find(<span class="string">'apple'</span>,14,24)
-19 
-
-2,回文(正序排列和倒序排列)字符片分割两种方式：如下操作
-a = <span class="string">"abcde"</span>     
-<span class="built_in">print</span>(<span class="string">"forward:%s \n backward:%s"</span>%(a,a[::-1]))
-<span class="built_in">print</span>(a[::-1]) <span class="comment">#反转排列,两个分号的作用</span>
-<span class="built_in">print</span>(a[1::3]) <span class="comment">#1是从字符串下标位开始数就是b,然后以b为零开始数到3就是e</span>
-<span class="built_in">print</span>(a[1:4])   <span class="comment">#1是从字符串下标位开始数就是b,然后重新以下标位数值开始数到3之前保留中间字符串。</span>
-
-3,使用步长，实现字符串反转
-string1[-1::-1]  =&gt;dlrow olleh    从索引位-1开始，一直到字符串结束，反向输出字符
-但是下列操作，会返回一个空字符串：
-string1[-1:4]  =&gt; <span class="string">''</span>
-string1[-1:-5] =&gt; <span class="string">''</span>
-
-</code></pre>
-<h3 id="字符串练习题"><a href="#字符串练习题" class="headerlink" title="字符串练习题"></a>字符串练习题</h3>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/16/python_str-4/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-python_circle-3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/16/python_circle-3/">Python——爬虫</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/16/python_circle-3/" class="archive-article-date">
-  	<time datetime="2018-07-16T09:17:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <pre><code>好好学习，天天向上！
-</code></pre><h2 id="三，循环控制语句"><a href="#三，循环控制语句" class="headerlink" title="三，循环控制语句"></a>三，循环控制语句</h2><p>导向目录：for，while ,if</p>
-<h3 id="1-循环控制语句for的操作如下"><a href="#1-循环控制语句for的操作如下" class="headerlink" title="1,循环控制语句for的操作如下"></a>1,循环控制语句for的操作如下</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>循环</span><br><span class="line">第一种：（推荐）</span><br><span class="line">格式：<span class="keyword">for</span> 变量 <span class="keyword">in</span> 集合：</span><br><span class="line">    代码</span><br><span class="line">说明：这种循环方式，我们称为快速迭代循环，能够对集合数据进行遍历。</span><br><span class="line">注意：这种方式只能用在集合数据上，比如：字符串、列表、元组、字典等内容。</span><br><span class="line"><span class="comment">#例如：</span></span><br><span class="line">string1 = <span class="string">'hello world'</span></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> string1:</span><br><span class="line">	<span class="built_in">print</span>(item)</span><br><span class="line"></span><br><span class="line">第二种：传统式，配合range()函数使用。通过range()函数指定了循环的范围。</span><br><span class="line"><span class="keyword">for</span> i range(循环次数):</span><br><span class="line">    代码</span><br><span class="line">说明：这种循环方式，采用指定循环次数，对目标集合进行遍历。其做法主要是让循环与集合的下标同步，在循环次数时一同取出集合指定下标的对应值。</span><br><span class="line">range()函数：</span><br><span class="line">函数格式：</span><br><span class="line">range(stop) :缺省情况下，表示从0开始，循环n次</span><br><span class="line">range(star,stop[,step])</span><br><span class="line">其中，star：循环开始的值，stop：循环次数，step：循环步长。注意此处循环，会根据stop中的值循环规定的次数，但是显示时会从start位置开始。</span><br><span class="line"><span class="comment">#例如：</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(3,10):</span><br><span class="line">	<span class="built_in">print</span>(i,end=<span class="string">' '</span>)</span><br><span class="line">3 4 5 6 7 8 9 </span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(5,10):</span><br><span class="line">	<span class="built_in">print</span>(i,end=<span class="string">' '</span>)</span><br><span class="line">5 6 7 8 9 </span><br><span class="line">range(1,10)  </span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>循环的常用方式：嵌套模式</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(次数): <span class="comment">#这里循环一次</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(次数): <span class="comment">#这里循环n次</span></span><br><span class="line">    </span><br><span class="line">注意：在这种嵌套表示的过程中，变量的位置尤为重要，通用原则为：如果变量的值需要通过外层循环来获取或生成，那么我们可以将其设为全局变量，即与外层循环<span class="keyword">for</span>同等级的变量，如果变量需要在内层循环中生成或获取，我们通常会在外循环中声明，即与内循环同级。</span><br></pre></td></tr></table></figure>
-<h3 id="2-for循环的练习题"><a href="#2-for循环的练习题" class="headerlink" title="2,for循环的练习题"></a>2,for循环的练习题</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line">a =  list() <span class="comment">#放上面才会有[1, 2, 3, 4, 5, 6, 7, 8, 9]</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span>  range(1,10):</span><br><span class="line">    a = list()  <span class="comment"># 放在这里时会有 [1] [2] [3] [4] [5] [6] [7] [8] [9]</span></span><br><span class="line">    a.append(i)</span><br><span class="line"><span class="built_in">print</span>(a,end =<span class="string">" "</span>) </span><br><span class="line"></span><br><span class="line">a = [1,2,3,4]</span><br><span class="line">n = 0</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> range(len(a)): <span class="comment">#现在是打印长度，然后遍历长度</span></span><br><span class="line"><span class="comment">#for i in range(101): #这是循环出</span></span><br><span class="line">    n = n +i</span><br><span class="line"><span class="built_in">print</span>(n) <span class="comment">#当print放在前面时求和</span></span><br><span class="line"></span><br><span class="line">a = [1,2,3,4,5] </span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(a)): <span class="comment">#先遍历索引位，然后根据索引位追加到列表中的值</span></span><br><span class="line">  <span class="built_in">print</span>(a[i])</span><br><span class="line"></span><br><span class="line">li = [1,3,4,<span class="string">'alex'</span>,[3,7,8,<span class="string">'taibai'</span>],5,<span class="string">'ritian'</span>]</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> range(len(li)):</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">type</span>(li[x]) == list: 首先是用类型判断子列表是不是列表</span><br><span class="line">        <span class="keyword">for</span> n <span class="keyword">in</span> li[x]:  这里遍历里面的子列表的元素</span><br><span class="line">            <span class="built_in">print</span>(n)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(li[x])  </span><br><span class="line"></span><br><span class="line"><span class="comment">#双重for循环来变换三角型</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(0,5):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(0,5): <span class="comment">#输出是正方形</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"*"</span>,end=<span class="string">" "</span>)</span><br><span class="line">    <span class="built_in">print</span>() </span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(0,5):  <span class="comment">#输出是右三角</span></span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> range(0,5-(i+1)):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">" "</span>,end=<span class="string">" "</span>)</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(0,i+1):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"*"</span>,end=<span class="string">" "</span>)    </span><br><span class="line">    <span class="built_in">print</span>()   </span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(0,5):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(0,i+1): <span class="comment">#输出是左三角</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"x"</span>,end=<span class="string">" "</span>)</span><br><span class="line">    <span class="built_in">print</span>() </span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(0,5): <span class="comment">#左下三角</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(0,5-i):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"x"</span>,end=<span class="string">" "</span>)</span><br><span class="line">    <span class="built_in">print</span>()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(0,5): <span class="comment">#右下三角形</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(0,i):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">" "</span>,end=<span class="string">" "</span>)</span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> range(0,5-i):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"x"</span>,end=<span class="string">" "</span>) </span><br><span class="line">    <span class="built_in">print</span>()               </span><br><span class="line">   </span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(0,10): <span class="comment">#等腰三角</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(0,9-i):</span><br><span class="line">        <span class="built_in">print</span>(end=<span class="string">""</span>)</span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> range(9-i,10):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"*"</span>,end= <span class="string">" "</span>)</span><br><span class="line">    <span class="built_in">print</span>()                 </span><br><span class="line"></span><br><span class="line">推导式或者是嵌套式：例题</span><br><span class="line">l = [1,1,2,2,3,4,5,5,6,6,7,8] 去重</span><br><span class="line"><span class="built_in">print</span>([ls.append(i)) <span class="keyword">for</span> I <span class="keyword">in</span> l  <span class="keyword">if</span> i not <span class="keyword">in</span> ls])</span><br><span class="line">列如</span><br><span class="line"><span class="built_in">print</span>([x**x <span class="keyword">for</span> x <span class="keyword">in</span> range(1,5)])</span><br><span class="line">列如</span><br><span class="line"><span class="built_in">print</span>([(i,j) <span class="keyword">for</span> i <span class="keyword">in</span> range(0,3,2)  <span class="keyword">for</span> j <span class="keyword">in</span> range(0,3,2)])</span><br><span class="line"><span class="comment">#输出[(0, 0), (0, 2), (2, 0), (2, 2)]</span></span><br><span class="line">列如</span><br><span class="line">dic[<span class="string">"name_list"</span>]=[i.upper() <span class="keyword">for</span> i <span class="keyword">in</span> dic[<span class="string">"name_list"</span>]]</span><br><span class="line"><span class="built_in">print</span>(dic)<span class="comment">#推导式就是放在列表中的，利用for循环 不加range</span></span><br></pre></td></tr></table></figure>
-<h3 id="3-条件控制语句if"><a href="#3-条件控制语句if" class="headerlink" title="3,条件控制语句if"></a>3,条件控制语句if</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1）条件语句</span><br><span class="line">单判断：</span><br><span class="line"><span class="keyword">if</span> 条件:                    <span class="keyword">if</span>  条件:</span><br><span class="line">   代码                         代码</span><br><span class="line">双分支：                     <span class="keyword">elif</span> 条件：</span><br><span class="line"><span class="keyword">if</span> 条件：                          代码</span><br><span class="line">   代码                     <span class="keyword">elif</span> 条件：</span><br><span class="line"><span class="keyword">else</span>:                           代码</span><br><span class="line">   代码                     ......</span><br><span class="line">多分枝结构                   <span class="keyword">else</span>:</span><br><span class="line">经常和<span class="keyword">for</span>循环一起是使用          代码</span><br></pre></td></tr></table></figure>
-<h3 id="4-循环控制语句while"><a href="#4-循环控制语句while" class="headerlink" title="4,循环控制语句while"></a>4,循环控制语句while</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>循环</span><br><span class="line">格式：<span class="keyword">while</span> 条件：</span><br><span class="line">           代码</span><br><span class="line"></span><br><span class="line"><span class="built_in">break</span>与<span class="built_in">continue</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">break</span>：当满足指定条件时，<span class="built_in">break</span>表示中断（中止）此循环，如果循环外部还有其他代码则继续向下执行。</span><br><span class="line"></span><br><span class="line"><span class="built_in">continue</span>：当满足指定条件时，<span class="built_in">continue</span>表示结束本次循环，开始下一次循环。注意<span class="built_in">continue</span>并没有退出循环。</span><br><span class="line">同时，这两个关键字都是必须配合循环语句来使用，不能单独用在其他地方，比如：<span class="keyword">if</span></span><br></pre></td></tr></table></figure>
-<h3 id="练习题"><a href="#练习题" class="headerlink" title="练习题"></a>练习题</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">dic = &#123;</span><br><span class="line">    <span class="string">"1"</span>:<span class="string">"电脑"</span>,</span><br><span class="line">    <span class="string">"2"</span>:<span class="string">"手机"</span>,</span><br><span class="line">    <span class="string">"3"</span>:<span class="string">"游艇"</span>,</span><br><span class="line">    <span class="string">"4"</span>:<span class="string">"鼠标垫"</span></span><br><span class="line">    &#125;</span><br><span class="line">msg = <span class="string">" "</span></span><br><span class="line"><span class="keyword">while</span> True: <span class="comment">#当判断为真会继续执行下去</span></span><br><span class="line">    person = input(<span class="string">"请你输入商品序号或者按q退出："</span>)</span><br><span class="line">    <span class="keyword">if</span> person == <span class="string">"q"</span> or person == <span class="string">"Q"</span>:</span><br><span class="line">        <span class="built_in">break</span></span><br><span class="line">    <span class="keyword">else</span>: <span class="comment">#判断语句可以嵌套式来写</span></span><br><span class="line">        <span class="keyword">if</span> person <span class="keyword">in</span> dic.keys(): </span><br><span class="line"></span><br><span class="line">            msg =(<span class="string">"序号   商品"</span>)</span><br><span class="line">            msg = <span class="string">"&#123;0&#125;   &#123;1&#125;"</span>.format(person,dic[person])</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            msg = (<span class="string">"输入商品错误"</span>)     </span><br><span class="line">    <span class="built_in">print</span>(msg)</span><br></pre></td></tr></table></figure>
-<p>###<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> x <span class="keyword">in</span> x:</span><br><span class="line">    <span class="keyword">if</span> 。。。:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        。。。。</span><br><span class="line"><span class="keyword">else</span>：</span><br><span class="line">    。。。。</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> Ture:        </span><br><span class="line">    <span class="keyword">if</span> x == x:</span><br><span class="line">        <span class="keyword">if</span> </span><br><span class="line"></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">if</span> </span><br><span class="line"></span><br><span class="line">        <span class="keyword">else</span></span><br></pre></td></tr></table></figure></p>
-<p>##<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ 在这里写东西</span><br></pre></td></tr></table></figure></p>
-<p>##<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ 在这里写东西</span><br></pre></td></tr></table></figure></p>
-<h1 id="练习题-1"><a href="#练习题-1" class="headerlink" title="练习题"></a>练习题</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在这里写东西</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/16/python_circle-3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-python_integer-2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/16/python_integer-2/">Python——爬虫</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/16/python_integer-2/" class="archive-article-date">
-  	<time datetime="2018-07-16T09:17:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <pre><code>好好学习，天天向上！
-</code></pre><h2 id="二，基本整型类型"><a href="#二，基本整型类型" class="headerlink" title="二，基本整型类型"></a>二，基本整型类型</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">常见数据类型：整型(常用)，浮点型布尔型，复数型，</span><br></pre></td></tr></table></figure>
-<h3 id="1-整型数据"><a href="#1-整型数据" class="headerlink" title="1,整型数据"></a>1,整型数据</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">概念：我们通常根据计算机中数据编码格式，将整型分为：二进制、八进制、十进制、十六进制四种类型。</span><br><span class="line">进制间的转换。</span><br><span class="line">bin() <span class="comment"># 将数值转为二进制类型</span></span><br><span class="line">oct() <span class="comment"># 将数值转为对应的八进制类型</span></span><br><span class="line">int() <span class="comment"># 将数值转为对应的十进制类型</span></span><br><span class="line">hex() <span class="comment"># 将数值转为对应的十六进制类型</span></span><br><span class="line"><span class="string">"%o %x"</span>%(120,120)，字符串格式表达式也可以表示八进制和十六进制</span><br></pre></td></tr></table></figure>
-<h3 id="2-整型的运算符运算-floor-ceil-round-abs-pow-divmod"><a href="#2-整型的运算符运算-floor-ceil-round-abs-pow-divmod" class="headerlink" title="2,整型的运算符运算:floor,ceil,round,abs,pow,divmod"></a>2,整型的运算符运算:floor,ceil,round,abs,pow,divmod</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">1）算术运算符：+、-、*、/</span><br><span class="line">在python中默认的数据类型时浮点型，因此在执行算术运算时5/2=2.5，而不是2.</span><br><span class="line"><span class="comment">#求 %：两数进行求余运算，如果分子大于分母，得余数；</span></span><br><span class="line">                    如果分子小于分母，直接得分子。</span><br><span class="line">注意：只有分子除尽分母时，结果才返回0</span><br><span class="line"><span class="comment">#求 //：两数相除取整数，注意，此处得到的整数，为结果的整数部分不进行四舍五入操作。</span></span><br><span class="line"><span class="comment">#求 **：A**B 数A连续相乘B次，也可以说数A 的B次幂</span></span><br><span class="line">补充：</span><br><span class="line">2)对于数值运算的四舍五入操作</span><br><span class="line">math包中的floor()和 ceil()函数</span><br><span class="line">import math</span><br><span class="line">math.floor(3/2) =&gt;1   等同于 3//2  只舍不入</span><br><span class="line">math.ceil(3/2) =&gt;2    此处，只要有小数位就进位，不管小数部分是否大于等于5  只入不舍.</span><br><span class="line">3），数值函数</span><br><span class="line">(1),round()函数进行四舍五入操作，round(数值[,保留小数位数])</span><br><span class="line">round(1.5)=&gt;2  </span><br><span class="line">round(1.2)=&gt;1</span><br><span class="line">round(1,4,1)=&gt;1.4  意味着保留小数点后一位</span><br><span class="line">(2),求幂运算pow()</span><br><span class="line">pow(2,3) =&gt;8 等同于2**3</span><br><span class="line">4),求绝对值</span><br><span class="line">abs(-10) =&gt; 10</span><br><span class="line">                        补充：</span><br><span class="line">abs(x)  绝对值，返回x的数值（去除正负符号）</span><br><span class="line">round(x,n)  四舍五入，n代表了要保留的小数点后的位数。注意，Python的四舍五入以.5为界限，超过部分才值入，不超过舍去。但是Python 3中的round函数，得到的值是一个近似值，所以如果对结果的精确度有要求，慎用。</span><br><span class="line">divmod(x,y)  对x与y 的值进行除法运算和求余运算，以元组的形式返回两个结果值</span><br><span class="line">pow(x,y)  求x的y次幂</span><br><span class="line"></span><br><span class="line">5),求两数相除的商与余数</span><br><span class="line">divmod(5,3) =&gt;(1,2)    类似5%3=&gt;2</span><br><span class="line">6),运算符</span><br><span class="line">i = 10 </span><br><span class="line">i = i + 5  等同于  i+=5</span><br><span class="line">i = i - 5  等同于  i-=5</span><br><span class="line">i = i * 5  等同于  i*=5</span><br><span class="line">i = i / 5  等同于  i/=5</span><br><span class="line">i = i//5   等同于  i//=5</span><br><span class="line">i = i ** 2 等同于  i**=2</span><br><span class="line">i = i % 3  等同于  i%=3</span><br></pre></td></tr></table></figure>
-<h3 id="3-整数的逻辑运算符"><a href="#3-整数的逻辑运算符" class="headerlink" title="3,整数的逻辑运算符"></a>3,整数的逻辑运算符</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">与 &amp;、或 |、非 ！</span><br><span class="line">x&amp;y  <span class="comment">#x与y进行and操作</span></span><br><span class="line">x|y  <span class="comment">#x与y进行or操作</span></span><br><span class="line">x^y  <span class="comment">#x与y进行XOR操作</span></span><br><span class="line">~x   <span class="comment">#对x求反转</span></span><br><span class="line">x&lt;&lt;y <span class="comment">#左位移</span></span><br><span class="line">x&gt;&gt;y <span class="comment">#右位移</span></span><br></pre></td></tr></table></figure>
-<h3 id="4-逻辑运算符：-and、or、not"><a href="#4-逻辑运算符：-and、or、not" class="headerlink" title="4,逻辑运算符： and、or、not"></a>4,逻辑运算符： and、or、not</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">and:左右两端都是布尔型，其结果也为布尔型。当左右两端的值都为True，其结果才为True，有一方为False，其结果一定为False。</span><br><span class="line"></span><br><span class="line">or:左右两端都是布尔型，其结果也为布尔型。当左右两端的值有一方为True时，其结果就为True，只有在双方都为False时，其结果才为False。</span><br><span class="line"></span><br><span class="line">not：属于单目运算，其结果也是布尔型。其作用就是求反，如果变量为True，结果为False，如果为False，其结果为True。</span><br><span class="line">逻辑运算、比较运算常用在条件中使用。同时，这两种运算符经常配合使用。</span><br></pre></td></tr></table></figure>
-<h3 id="5-布尔型操作-布尔值：True，False"><a href="#5-布尔型操作-布尔值：True，False" class="headerlink" title="5,布尔型操作(布尔值：True，False)"></a>5,布尔型操作(布尔值：True，False)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1),python中布尔型分为True和False两种，但是在实际操作中我们也可以将其与1和0等同。与 and，或 or， 非 not</span><br><span class="line">2),布尔型常用在逻辑运算和判断条件中，作为结果来使用。但是也可以参与算术运算，当进行算术运算时，True作为1、False作为0参与运算。</span><br><span class="line">3),a = True     a + 1 =&gt; 2</span><br><span class="line">b = False b + 1 =&gt;1</span><br><span class="line">a + b =&gt; 1</span><br><span class="line">注意：通常我们在python，不能将布尔型参与算术运算的。布尔型一般参加比较运算或逻辑运算，其返回值还是布尔型。</span><br><span class="line">布尔型求非： not</span><br><span class="line">not a =&gt; False</span><br><span class="line">not b =&gt; True</span><br></pre></td></tr></table></figure>
-<h3 id="6-浮点数"><a href="#6-浮点数" class="headerlink" title="6,浮点数"></a>6,浮点数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int(): 可以将浮点型数转换为整数，返回其整数部分。</span><br><span class="line">int（2.8）=》2</span><br><span class="line">需要先引入import math包后，才能调用</span><br><span class="line">floor() <span class="comment"># 只舍不入</span></span><br><span class="line">ceil()  <span class="comment"># 只入不舍</span></span><br><span class="line">math.floor(),math.ceil()</span><br><span class="line">is_integer()  <span class="comment">#判断数值是否为整数，返回值为布尔型</span></span><br><span class="line">float.as_integer_ratio(x) <span class="comment">#判断给定的浮点数的小数</span></span><br><span class="line">注意：浮点数在Python中，其数据本身就不精确。所以使用round()，decimal等运算时，产生的结果也是不精确的。如果，我们需要精确的结果，采用整数或者字符串来表示。使用decimal包，来提供固定的十进制的数值，建议使用整型和字符串来表示。不要采用浮点型，因为浮点型不精确。</span><br><span class="line">import decimal</span><br></pre></td></tr></table></figure>
-<h3 id="7-补充-精确十进制的算法"><a href="#7-补充-精确十进制的算法" class="headerlink" title="7,补充(精确十进制的算法)"></a>7,补充(精确十进制的算法)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">在python中，我们通过阅读官方文档了解到，浮点数是一种近似值的表示，因此直接使用浮点数时常常出现精度丢失或不匹配情况发生。</span><br><span class="line">python中提出了Decimal对象来进行解决，通过引入 import decimal生成一个decimal对象，将浮点数转换为decimal类型，可以支持完成对应的算术运算。例如：</span><br><span class="line"></span><br><span class="line">from decimal import Decimal   <span class="comment"># 引入decimal包中的Deciaml对象</span></span><br><span class="line">f1 = 12.4556</span><br><span class="line">f2 = 24.3</span><br><span class="line">c = Decimal.from_float(f1)     <span class="comment"># 将浮点数转换为decimal对象</span></span><br><span class="line">a = Decimal(f1).quantize(Decimal(<span class="string">'0.00'</span>)) <span class="comment">#将浮点数转换为decimal对象，同时指定该数值的精度，保留小数点后两位，并自动完成四舍五入。</span></span><br><span class="line">b = Decimal(f2).quantize(Decimal(<span class="string">'0.00'</span>))</span><br><span class="line"><span class="built_in">print</span>((a*b).quantize(Decimal(<span class="string">'0.00'</span>))</span><br></pre></td></tr></table></figure>
-<p>###<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ 在这里写东西</span><br></pre></td></tr></table></figure></p>
-<h2 id="练习题"><a href="#练习题" class="headerlink" title="练习题"></a>练习题</h2>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/16/python_integer-2/">展开全文 >></a>
         </p>
       
 
